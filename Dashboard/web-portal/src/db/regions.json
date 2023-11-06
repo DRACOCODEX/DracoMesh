@@ -1,0 +1,11 @@
+{
+  "regions": [
+    {
+      "westCoastStatus": 100,
+      "midWestCoastStatusDinoHeadNode": 27,
+      "midWestCoastStatusNDRCComms": 23,
+      "eastCoastStatus": 20,
+      "id": 1
+    }
+  ]
+}
