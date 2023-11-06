@@ -1,0 +1,2831 @@
+{
+  "data": {
+    "Nodes": {
+      "items": [
+        {
+          "metadata": {
+            "labels": {
+              "betaKubernetesIoArch": "amd64",
+              "betaKubernetesIoOs": "linux",
+              "kubernetesIoArch": "amd64",
+              "kubernetesIoHostname": "docker-desktop",
+              "kubernetesIoOs": "linux",
+              "nodeRoleKubernetesIoControlPlane": "",
+              "nodeKubernetesIoExcludeFromExternalLoadBalancers": ""
+            },
+            "name": "raptor-control-plane-czhbd"
+          }
+        },
+        {
+          "metadata": {
+            "labels": {
+              "betaKubernetesIoArch": "amd64",
+              "betaKubernetesIoOs": "linux",
+              "kubernetesIoArch": "amd64",
+              "kubernetesIoHostname": "docker-desktop",
+              "kubernetesIoOs": "linux",
+              "nodeRoleKubernetesIoControlPlane": "",
+              "nodeKubernetesIoExcludeFromExternalLoadBalancers": ""
+            },
+            "name": "raptor-control-plane-7vzbx"
+          }
+        },
+        {
+          "metadata": {
+            "labels": {
+              "betaKubernetesIoArch": "amd64",
+              "betaKubernetesIoOs": "linux",
+              "kubernetesIoArch": "amd64",
+              "kubernetesIoHostname": "docker-desktop",
+              "kubernetesIoOs": "linux",
+              "nodeRoleKubernetesIoControlPlane": "",
+              "nodeKubernetesIoExcludeFromExternalLoadBalancers": ""
+            },
+            "name": "raptor-md-0-589b884cb5-zgnhq"
+          }
+        },
+        {
+          "metadata": {
+            "labels": {
+              "betaKubernetesIoArch": "amd64",
+              "betaKubernetesIoOs": "linux",
+              "kubernetesIoArch": "amd64",
+              "kubernetesIoHostname": "docker-desktop",
+              "kubernetesIoOs": "linux",
+              "nodeRoleKubernetesIoControlPlane": "",
+              "nodeKubernetesIoExcludeFromExternalLoadBalancers": ""
+            },
+            "name": "raptor-md-0-589b884cb5-d6d26"
+          }
+        },
+        {
+          "metadata": {
+            "labels": {
+              "betaKubernetesIoArch": "amd64",
+              "betaKubernetesIoOs": "linux",
+              "kubernetesIoArch": "amd64",
+              "kubernetesIoHostname": "docker-desktop",
+              "kubernetesIoOs": "linux",
+              "nodeRoleKubernetesIoControlPlane": "",
+              "nodeKubernetesIoExcludeFromExternalLoadBalancers": ""
+            },
+            "name": "raptor-control-plane-jmnwv"
+          }
+        },
+        {
+          "metadata": {
+            "labels": {
+              "betaKubernetesIoArch": "amd64",
+              "betaKubernetesIoOs": "linux",
+              "kubernetesIoArch": "amd64",
+              "kubernetesIoHostname": "docker-desktop",
+              "kubernetesIoOs": "linux",
+              "nodeRoleKubernetesIoControlPlane": "",
+              "nodeKubernetesIoExcludeFromExternalLoadBalancers": ""
+            },
+            "name": "raptor-md-0-589b884cb5-gpd8c"
+          }
+        },
+        {
+          "metadata": {
+            "labels": {
+              "betaKubernetesIoArch": "amd64",
+              "betaKubernetesIoOs": "linux",
+              "kubernetesIoArch": "amd64",
+              "kubernetesIoHostname": "docker-desktop",
+              "kubernetesIoOs": "linux",
+              "nodeRoleKubernetesIoControlPlane": "",
+              "nodeKubernetesIoExcludeFromExternalLoadBalancers": ""
+            },
+            "name": "raptor-md-0-589b884cb5-9wcwn"
+          }
+        }
+      ]
+    },
+    "Pods": {
+      "items": [
+        {
+          "metadata": {
+            "name": "CoreDNS"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-czhbd",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "Kube-Prometheus"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-czhbd",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "Kommander-Licensing"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-czhbd",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "fluent bit"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-czhbd",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "capg-controller-manager"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-czhbd",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "capv-controller-manager"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-czhbd",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "cappp-controller-manager"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-czhbd",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "capz-controller-manager"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-czhbd",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "capa-controller-manager"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-czhbd",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kube-controller-manager"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-czhbd",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "vsphere-csi-node"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-czhbd",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kube-apiserver"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-czhbd",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "vsphere-csi-controller"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-czhbd",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "etcd-raptor-control"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-czhbd",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kube scheduler"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-czhbd",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "csi-node"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-czhbd",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "vsphere-cloud-controller"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-czhbd",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kube-proxy"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-czhbd",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "calico-node"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-czhbd",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "csi-node-driver"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-czhbd",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "node-feature-discovery"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-czhbd",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "CoreDNS"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-7vzbx",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "Kube-Prometheus"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-7vzbx",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "Kommander-Licensing"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-7vzbx",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "fluent bit"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-7vzbx",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "capg-controller manager"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-7vzbx",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "capv-controller-manager"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-7vzbx",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "cappp-controller-manager"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-7vzbx",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "capz-controller-manager"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-7vzbx",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "capa-controller-manager"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-7vzbx",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kube-controller-manager"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-7vzbx",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "vsphere-csi-node"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-7vzbx",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kube-apiserver"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-7vzbx",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "vsphere-csi-controller"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-7vzbx",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "etcd-raptor-controller"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-7vzbx",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kube scheduler"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-7vzbx",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "csi-node"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-7vzbx",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "vsphere-cloud-controller"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-7vzbx",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kube-proxy"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-7vzbx",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "calico-node"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-7vzbx",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },{
+          "metadata": {
+            "name": "csi-node-driver"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-7vzbx",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "node-feature-discovery"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-7vzbx",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "raptor-dashboard"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "GraphQL-Server"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "cluster-observer"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "gitea-0"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "prometheus-server"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "raptor-kafka-cluster"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "calico-typha"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "calico-node"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kommander-appmgmt"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kommander-webhook"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kommander-capimate"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "grafana"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "prometheus-kube-state"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kubecost-traefik"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "centralized-grafana"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kommander-kubecost-thnos-query-frontend"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kubecost-grafana"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "rook-ceph"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "rook-ceph-crashcollecter"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "node-feature-discovery"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "ankoringress-nginx"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "raptor-kaka-cluster-zookeeper"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "prometheus-traefik-certs-kommander-default"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kommander-cm"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kommander-traefik"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "rfluentbit"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "rlogginf-operator"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kubetunnel"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kubecost-grafana"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "rook-ceph-osd"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "rook-ceph-mgr"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "vsphere-csi-node"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kubetunnel-webhook"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kube-prometheus-stack"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "prometheus-traefik-certs-kommander-federation"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "traefik-forward"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "rkube-oldc"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "rook-ceph-mon"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "dex-dex-controller"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "source-controller"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "notification-controller"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "speaker"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "csi-node-driver"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kube-proxy"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kommander-kommander-ui"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-d6d26",
+            "containers": [
+              {
+                "name": "REACT Dashboard"
+              },
+              {
+                "name": "GraphQL"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "REACT Dashboard",
+                "state": {
+                  "running": null
+                }
+              },
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "GraphQL",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "demo-nexus"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-d6d26",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "demo-app"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-d6d26",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "pods 4...32"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-d6d26",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "calico-node"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-d6d26",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "node-feature-discovery"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-d6d26",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "csi-node-driver"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-d6d26",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kube-proxy"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-d6d26",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "vsphere-csi-node"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-d6d26",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "end-raptor-control"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-jmnwv",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kube scheduler"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-jmnwv",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "pods 7 .. 17"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-jmnwv",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kube-apiserver"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-jmnwv",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "4...6 cert-mgr"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-jmnwv",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "pods 18..22"
+          },
+          "spec": {
+            "nodeName": "raptor-control-plane-jmnwv",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "1...9 (grafana-loki)"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-gpd8c",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "demo-app (kuma)"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-gpd8c",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "pods 13... 33"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-gpd8c",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "kube-fed"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-gpd8c",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "dip-insights"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-gpd8c",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "pods 34... 36"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-gpd8c",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "1..2 raptor-kafka"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-9wcwn",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "reddis"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-9wcwn",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "pods 6...30"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-9wcwn",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "nexus"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-9wcwn",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "keyloak"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-9wcwn",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "metadata": {
+            "name": "pods 31..35"
+          },
+          "spec": {
+            "nodeName": "raptor-md-0-589b884cb5-9wcwn",
+            "containers": [
+              {
+                "name": "nginx"
+              }
+            ]
+          },
+          "status": {
+            "containerStatuses": [
+              {
+                "containerID": "docker://c258b6c94e0dcc264f930e211c550e66910a7117a60035b41368da3c660587ca",
+                "name": "nginx",
+                "state": {
+                  "running": null
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

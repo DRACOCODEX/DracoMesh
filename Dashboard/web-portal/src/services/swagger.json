@@ -1,0 +1,1690 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "VistA Encounter Service v2",
+    "description": "The VistA Encounter Service is responsible for retrieving, signing, and saving data related to encounter notes via the VistaA Integration Adapter (VIA) platform.",
+    "version": "@swagger.contract.version@"
+  },
+  "servers": [
+    {
+      "description": "SQA",
+      "url": "https://staff.apps-staging.va.gov/VistaEncounterService/v2"
+    },
+    {
+      "description": "PROD",
+      "url": "https://staff.apps.va.gov/VistaEncounterService/v2"
+    }
+  ],
+  "security": [
+    {
+      "requireVamfJwtKey": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "EncounterFormResource",
+      "description": "Endpoints for retrieving various VistA site encounter form data"
+    },
+    {
+      "name": "EncounterNotes",
+      "description": "Endpoints for retrieved and saving Patient Encounter Notes"
+    },
+    {
+      "name": "CosignEvent",
+      "description": "Endpoints for saving Patient Encounter Notes with a Cosigner"
+    }
+  ],
+  "paths": {
+    "/sites/{site-id}/diagnoses": {
+      "get": {
+        "tags": [
+          "EncounterFormResource"
+        ],
+        "summary": "Retrieve Diagnosis Codes available for a VistA site",
+        "operationId": "getDiagnosisCodes",
+        "parameters": [
+          {
+            "name": "site-id",
+            "in": "path",
+            "description": "The VistA Site Identifier to retrieve data from",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "500"
+          },
+          {
+            "deprecated": true,
+            "name": "searchstring",
+            "in": "query",
+            "description": "Deprecated - use 'term' parameter",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "term",
+            "in": "query",
+            "description": "Search parameter (must be at least 3 characters)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Infection"
+          },
+          {
+            "name": "maxrecords",
+            "in": "query",
+            "description": "Maximum number of records to return. '0' indicates no maximum limit.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 50
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Diagnosis Codes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./swagger-definitions.json#/components/schemas/EncounterCode"
+                  }
+                },
+                "example": [
+                  {
+                    "description": "Localized Salmonella Infection, unspecified",
+                    "code": "A02.20",
+                    "ien": "5000013",
+                    "codeType": "ICD-10-CM"
+                  },
+                  {
+                    "description": "Salmonella with other Localized Infection",
+                    "code": "A02.29",
+                    "ien": "5000015",
+                    "codeType": "ICD-10-CM"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sites/{site-id}/patients/{dfn}/problem-list-diagnoses": {
+      "get": {
+        "tags": [
+          "EncounterFormResource"
+        ],
+        "summary": "Retrieves the active medical diagnoses for a Patient",
+        "operationId": "getPatientProblemListDiagnoses",
+        "parameters": [
+          {
+            "name": "site-id",
+            "in": "path",
+            "description": "The VistA Site Identifier to retrieve data from",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "500"
+          },
+          {
+            "name": "dfn",
+            "in": "path",
+            "description": "The Patient Identifier to retrieve data for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1"
+          },
+          {
+            "name": "visitDate",
+            "in": "query",
+            "description": "Date of Patient visit to retrieve data for",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2018-06-28T00:00Z"
+          },
+          {
+            "name": "sensitivePatientAcknowledged",
+            "in": "query",
+            "description": "Timestamp used for auditing sensitive patient data access. If provided, sensitive patient data can be accessed.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2020-04-20T00:00z"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Active medical diagnosis for a Patient",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./swagger-definitions.json#/components/schemas/EncounterDiagnosisICDCode"
+                  }
+                },
+                "example": [
+                  {
+                    "description": "DIABETES MELLI W/0 COMP TYP I (ICD-9-CM 250.01)",
+                    "code": "250.01",
+                    "ien": "140",
+                    "codeType": "ICD-9-CM",
+                    "primaryDiagnosis": false,
+                    "addToProblemList": false,
+                    "fromProblemList": false
+                  },
+                  {
+                    "description": "Major depression with melancholia (ICD-9-CM 296.20)",
+                    "code": "296.20",
+                    "ien": "91",
+                    "codeType": "ICD-9-CM",
+                    "primaryDiagnosis": false,
+                    "addToProblemList": false,
+                    "fromProblemList": false,
+                    "dateOnset": "2097-11-19T05:00:00Z",
+                    "dateOnsetRaw": "11/19/97",
+                    "serviceConnected": "NSC",
+                    "serviceConnectedYN": "N"
+                  },
+                  {
+                    "description": "Dementia associated with alcoholism (ICD-9-CM 291.2)",
+                    "code": "291.2",
+                    "ien": "18",
+                    "codeType": "ICD-9-CM",
+                    "primaryDiagnosis": false,
+                    "addToProblemList": false,
+                    "fromProblemList": false,
+                    "dateOnset": "2094-10-18T04:00:00Z",
+                    "dateOnsetRaw": "10/18/94",
+                    "serviceConnected": "NSC",
+                    "serviceConnectedYN": "N"
+                  },
+                  {
+                    "description": "Drug Abuse, Sports (ICD-9-CM 799.9)",
+                    "code": "799.9",
+                    "ien": "19",
+                    "codeType": "ICD-9-CM",
+                    "primaryDiagnosis": false,
+                    "addToProblemList": false,
+                    "fromProblemList": false,
+                    "serviceConnected": "NSC",
+                    "serviceConnectedYN": "N"
+                  }
+                ]
+              }
+            }
+          },
+          "403": {
+            "description": "Attempting to access sensitive Patient record data"
+          }
+        }
+      }
+    },
+    "/sites/{site-id}/patients/{dfn}/visit-related-to": {
+      "get": {
+        "tags": [
+          "EncounterFormResource"
+        ],
+        "summary": "Get the Service Connected Related To Conditions for a Patient",
+        "description": "Required Query Params: 'location-ien', 'visitdate'",
+        "operationId": "getVisitRelatedTos",
+        "parameters": [
+          {
+            "name": "site-id",
+            "in": "path",
+            "description": "The VistA Site Identifier to retrieve data from",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "500"
+          },
+          {
+            "name": "dfn",
+            "in": "path",
+            "description": "The Patient Identifier to retrieve data for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "2"
+          },
+          {
+            "name": "location-ien",
+            "in": "query",
+            "description": "The Clinic Location Identifier to retrieve data for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "23"
+          },
+          {
+            "name": "visitdate",
+            "in": "query",
+            "description": "Date of Patient visit to retrieve data for",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2018-06-05T00:00Z"
+          },
+          {
+            "name": "sensitivePatientAcknowledged",
+            "in": "query",
+            "description": "Timestamp used for auditing sensitive patient data access. If provided, sensitive patient data can be accessed.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2020-04-20T00:00z"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Service Connected Related To Conditions for a Patient",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./swagger-definitions.json#/components/schemas/VisitRelatedTo"
+                  }
+                },
+                "example": [
+                  {
+                    "title": "Service Connected",
+                    "enabled": false,
+                    "checked": false,
+                    "code": "SC",
+                    "isAllowed": false
+                  },
+                  {
+                    "title": "Agent Orange",
+                    "enabled": false,
+                    "checked": false,
+                    "code": "AO",
+                    "isAllowed": false
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Parameters not provided: 'location-ien', 'visitdate'."
+          },
+          "403": {
+            "description": "Attempting to access sensitive Patient record data"
+          }
+        }
+      }
+    },
+    "/sites/{site-id}/modifiers": {
+      "get": {
+        "tags": [
+          "EncounterFormResource"
+        ],
+        "summary": "Retrieves CPT-4 Code Modifiers for a CPT-Code at a VistA facility",
+        "description": "Required Query Params: 'cpt-code'",
+        "operationId": "getModifiersByCptCode",
+        "parameters": [
+          {
+            "name": "site-id",
+            "in": "path",
+            "description": "The VistA Site Identifier to retrieve data from",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "500"
+          },
+          {
+            "name": "cpt-code",
+            "in": "query",
+            "description": "The CPT Code for to retrieve Modifiers for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "95700"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of CPT-4 Code Modifiers for a CPT-Code",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./swagger-definitions.json#/components/schemas/Modifier"
+                  }
+                },
+                "example": [
+                  {
+                    "ien": "737",
+                    "description": "AUC CONSULT NOT PROVIDED",
+                    "code": "MH",
+                    "selected": false
+                  },
+                  {
+                    "ien": "733",
+                    "description": "AUC HARDSHIP, EXTREME CIRC",
+                    "code": "MD",
+                    "selected": false
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Parameters not provided: 'cpt-code'."
+          }
+        }
+      }
+    },
+    "/sites/{site-id}/procedures": {
+      "get": {
+        "tags": [
+          "EncounterFormResource"
+        ],
+        "summary": "Retrieve Procedure Codes available at a VistA site",
+        "operationId": "getProcedureCodes",
+        "parameters": [
+          {
+            "name": "site-id",
+            "in": "path",
+            "description": "The VistA Site Identifier to retrieve data from",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "500"
+          },
+          {
+            "deprecated": true,
+            "name": "searchstring",
+            "in": "query",
+            "description": "Deprecated - use 'term' parameter",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "term",
+            "in": "query",
+            "description": "The name (or partial name) of the Procedures to return. (must be at least 3 characters)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Abdomen"
+          },
+          {
+            "name": "maxrecords",
+            "in": "query",
+            "description": "Maximum number of records to return. '0' indicates no maximum limit.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 50
+            }
+          },
+          {
+            "name": "extendedSearchFlag",
+            "in": "query",
+            "description": "Used in VIA for searches -- 1 for extended search; 0 for no extended search",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1"
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Types of Procedure Codes to return. Invalid codes are ignored.",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "CPT-4",
+                  "HCPCS"
+                ]
+              },
+              "default": [
+                "CPT-4"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Procedure Codes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./swagger-definitions.json#/components/schemas/EncounterCode"
+                  }
+                },
+                "example": [
+                  {
+                    "description": "Computed Tomography of Chest and Abdomen",
+                    "code": "4335K",
+                    "ien": "3000000040",
+                    "codeType": "CPT-4"
+                  },
+                  {
+                    "description": "Radiopharmaceutical Localization of Tumor, Inflammatory Process or Distribution of Radiopharmaceutical Agent(s) (Includes Vascular Flow and Blood Pool Imaging, when Performed); Tomographic (SPECT), Minimum 2 Areas (eg, Pelvis and Knees, Abdomen and Pelvis), single Day Imaging, or single area Imaging over 2 or more Days",
+                    "code": "78831",
+                    "ien": "347579",
+                    "codeType": "CPT-4"
+                  },
+                  {
+                    "description": "Radiopharmaceutical Localization of Tumor, Inflammatory Process or Distribution of Radiopharmaceutical Agent(s) (Includes Vascular Flow and Blood Pool Imaging, when Performed); Tomographic (SPECT) with Concurrently Acquired Computed Tomography (CT) Transmission Scan for Anatomical Review, Localization and Determination/Detection of Pathology, Minimum 2 Areas (eg, Pelvis and Knees, Abdomen and Pelvis), single Day Imaging, or single area Imaging over 2 or more Days",
+                    "code": "78832",
+                    "ien": "347580",
+                    "codeType": "CPT-4"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sites/{site-id}/providers": {
+      "get": {
+        "tags": [
+          "EncounterFormResource"
+        ],
+        "summary": "Retrieves available Providers for a VistA site",
+        "operationId": "getProviders",
+        "parameters": [
+          {
+            "name": "site-id",
+            "in": "path",
+            "description": "The VistA Site Identifier to retrieve data from",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "500"
+          },
+          {
+            "deprecated": true,
+            "name": "searchstring",
+            "in": "query",
+            "description": "Deprecated - use 'term' parameter",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "term",
+            "in": "query",
+            "description": "Provider name to filter data for",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ZEBRA"
+          },
+          {
+            "deprecated": true,
+            "name": "cache",
+            "in": "query",
+            "description": "Deprecated - alternatively utilize '/sites/{site-id}/providers/cached' endpoint",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of available Providers",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./swagger-definitions.json#/components/schemas/Provider"
+                  }
+                },
+                "example": [
+                  {
+                    "duz": "10000000278",
+                    "providerName": "ZEBRA,ANDY",
+                    "loginSiteCode": "500"
+                  },
+                  {
+                    "duz": "10000000253",
+                    "providerName": "ZEBRA,DAVID",
+                    "loginSiteCode": "500"
+                  },
+                  {
+                    "duz": "10000000255",
+                    "providerName": "ZEBRA,JAMES",
+                    "loginSiteCode": "500"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sites/{site-id}/providers/cached": {
+      "get": {
+        "tags": [
+          "EncounterFormResource"
+        ],
+        "summary": "Retrieves cached available Providers for a VistA site",
+        "operationId": "getCachedProviders",
+        "parameters": [
+          {
+            "name": "site-id",
+            "in": "path",
+            "description": "The VistA Site Identifier to retrieve data from",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "500"
+          },
+          {
+            "name": "term",
+            "in": "query",
+            "description": "Provider name to filter on",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ZEBRA"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of available Providers",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./swagger-definitions.json#/components/schemas/Provider"
+                  }
+                },
+                "example": [
+                  {
+                    "duz": "10000000278",
+                    "providerName": "ZEBRA,ANDY",
+                    "loginSiteCode": "500"
+                  },
+                  {
+                    "duz": "10000000253",
+                    "providerName": "ZEBRA,DAVID",
+                    "loginSiteCode": "500"
+                  },
+                  {
+                    "duz": "10000000255",
+                    "providerName": "ZEBRA,JAMES",
+                    "loginSiteCode": "500"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sites/{site-id}/patients/{dfn}/visit-types": {
+      "get": {
+        "tags": [
+          "EncounterFormResource"
+        ],
+        "summary": "Get Visit Types Cpts available at a Clinic (location) for a Patient",
+        "description": "Required Query Params: 'location-ien'",
+        "operationId": "getVisitTypeCptByClinic",
+        "parameters": [
+          {
+            "name": "site-id",
+            "in": "path",
+            "description": "The VistA Site Identifier to retrieve data from",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "500"
+          },
+          {
+            "name": "dfn",
+            "in": "path",
+            "description": "The Patient Identifier to retrieve data for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1"
+          },
+          {
+            "name": "location-ien",
+            "in": "query",
+            "description": "The Clinic Location Identifier to retrieve visit types for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "23"
+          },
+          {
+            "name": "timestamp",
+            "in": "query",
+            "description": "The earliest start date to retrieve visit types for",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2018-01-01T00:00Z"
+          },
+          {
+            "name": "sensitivePatientAcknowledged",
+            "in": "query",
+            "description": "Timestamp used for auditing sensitive patient data access. If provided, sensitive patient data can be accessed.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2020-04-20T00:00z"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Visit Types Cpts",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./swagger-definitions.json#/components/schemas/VisitType"
+                  }
+                },
+                "example": [
+                  {
+                    "description": "NEW PATIENT",
+                    "selected": false,
+                    "sections": [
+                      {
+                        "description": "Brief Visit",
+                        "code": "99201",
+                        "selected": false
+                      },
+                      {
+                        "description": "Limited Exam",
+                        "code": "99202",
+                        "selected": false
+                      },
+                      {
+                        "description": "Intermediate Exam",
+                        "code": "99203",
+                        "selected": false
+                      },
+                      {
+                        "description": "Extended Exam",
+                        "code": "99204",
+                        "selected": false
+                      },
+                      {
+                        "description": "Comprehensive Exam",
+                        "code": "99205",
+                        "selected": false
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Parameters not provided: 'location-ien'."
+          },
+          "403": {
+            "description": "Attempting to access sensitive Patient record data"
+          }
+        }
+      }
+    },
+    "/sites/{site-id}/users": {
+      "get": {
+        "tags": [
+          "EncounterFormResource"
+        ],
+        "summary": "Retrieves CPRS enabled users for a VistA site. Performs a 'phonebook-style' search.",
+        "operationId": "getUsers",
+        "parameters": [
+          {
+            "name": "site-id",
+            "in": "path",
+            "description": "The VistA Site Identifier to retrieve data from",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "500"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "User Name to filter on (either starts-with or 'lastname,firstname' format)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Three,Physician"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of CPRS enabled Users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./swagger-definitions.json#/components/schemas/User"
+                  }
+                },
+                "example": [
+                  {
+                    "title": "Physician",
+                    "duz": "11517",
+                    "name": "Three,Physician"
+                  },
+                  {
+                    "title": "Physician",
+                    "duz": "11531",
+                    "name": "Three,Therapist"
+                  },
+                  {
+                    "title": "MRT",
+                    "duz": "11581",
+                    "name": "Transcription,Mrt"
+                  },
+                  {
+                    "duz": "11326",
+                    "name": "Transcription,User"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sites/{site-id}/users/cached": {
+      "get": {
+        "tags": [
+          "EncounterFormResource"
+        ],
+        "summary": "Retrieves cached CPRS enabled users for a VistA site",
+        "operationId": "getCachedUsers",
+        "parameters": [
+          {
+            "name": "site-id",
+            "in": "path",
+            "description": "The VistA Site Identifier to retrieve data from",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "500"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "User Name to filter on (either starts-with or 'lastname,firstname' format)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Three,Physician"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of CPRS enabled Users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./swagger-definitions.json#/components/schemas/User"
+                  }
+                },
+                "example": [
+                  {
+                    "title": "Physician",
+                    "duz": "11517",
+                    "name": "Three,Physician"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sites/{site-id}/patients/{dfn}/notes/encounter": {
+      "post": {
+        "tags": [
+          "CosignEvent"
+        ],
+        "summary": "Save and Sign Encounter Note with a Cosigner for a Patient",
+        "operationId": "saveAndSignWithACosigner",
+        "parameters": [
+          {
+            "name": "site-id",
+            "in": "path",
+            "description": "The VistA Site Identifier to save data to",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "500"
+          },
+          {
+            "name": "dfn",
+            "in": "path",
+            "description": "The Patient Identifier to save Encounter Note for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1"
+          },
+          {
+            "deprecated": true,
+            "name": "noteId",
+            "in": "query",
+            "description": "Deprecated - Unused input parameter",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sensitivePatientAcknowledged",
+            "in": "query",
+            "description": "Timestamp used for auditing sensitive patient data access. If provided, sensitive patient data can be accessed.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2020-04-20T00:00z"
+          }
+        ],
+        "requestBody": {
+          "description": "Cosigning Note Signature Request",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "./swagger-definitions.json#/components/schemas/CosignRequest"
+              },
+              "example": {
+                "esig": "RA1234!!",
+                "titleIen": "1644",
+                "encounter": "500;3180425.163242;E",
+                "text": "This is my humble note | and this is the next line.",
+                "authorDuz": null,
+                "cosignerDuz": "63",
+                "consultIen": "164",
+                "prfIen": null,
+                "noteIen": "22222"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully written/signed Note response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./swagger-definitions.json#/components/schemas/NoteSigned"
+                },
+                "example": {
+                  "noteIen": "14346",
+                  "totalPages": 1,
+                  "lastPageRecd": 1,
+                  "status": "signed"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid 'CosignRequest' request body"
+          },
+          "403": {
+            "description": "Attempting to access sensitive Patient record data"
+          }
+        }
+      }
+    },
+    "/sites/{site-id}/patients/{dfn}/encounter-notes": {
+      "get": {
+        "tags": [
+          "EncounterNotes"
+        ],
+        "deprecated": true,
+        "summary": "Retrieves all Notes for a Patient",
+        "description": "Deprecated: use '/sites/{site-id}/patients/{dfn}/notes' to retrieve Note Content or '/VistaEmrService/v2/sites/{site-id}/noteTitles' for Note Titles",
+        "operationId": "getAllNoteTitlesWithConsultFlags",
+        "parameters": [
+          {
+            "name": "site-id",
+            "in": "path",
+            "description": "The VistA Site Identifier to retrieve data from",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "500"
+          },
+          {
+            "name": "dfn",
+            "in": "path",
+            "description": "The Patient Identifier to retrieve data for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1"
+          },
+          {
+            "name": "sensitivePatientAcknowledged",
+            "in": "query",
+            "description": "Timestamp used for auditing sensitive patient data access. If provided, sensitive patient data can be accessed.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2020-04-20T00:00z"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieves all Notes for a Patient",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./swagger-definitions.json#/components/schemas/NoteTitle"
+                  }
+                },
+                "example": [
+                  {
+                    "noteTitleIen": "1295",
+                    "noteTitles": [
+                      "ACROMEGALY  <C&P ACROMEGALY>",
+                      "C&P ACROMEGALY",
+                      "C&P ACROMEGALY  <C&P ACROMEGALY>"
+                    ],
+                    "isConsult": false
+                  },
+                  {
+                    "noteTitleIen": "40",
+                    "noteTitles": [
+                      "ADDICTION  <ASI-ADDICTION SEVERITY INDEX>",
+                      "ASI  <ASI-ADDICTION SEVERITY INDEX>",
+                      "ASI-ADDICTION SEVERITY INDEX",
+                      "ASI-ADDICTION SEVERITY INDEX  <ASI-ADDICTION SEVERITY INDEX>",
+                      "INDEX  <ASI-ADDICTION SEVERITY INDEX>",
+                      "SEVERITY  <ASI-ADDICTION SEVERITY INDEX>"
+                    ],
+                    "isConsult": false
+                  },
+                  {
+                    "noteTitleIen": "186",
+                    "noteTitles": [
+                      "AUDIOLOGY  <AUDIOLOGY CONSULT REPORT>",
+                      "AUDIOLOGY CONSULT REPORT",
+                      "CONSULT  <AUDIOLOGY CONSULT REPORT>",
+                      "REPORT  <AUDIOLOGY CONSULT REPORT>"
+                    ],
+                    "isConsult": true
+                  }
+                ]
+              }
+            }
+          },
+          "403": {
+            "description": "Attempting to access sensitive Patient record data"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "EncounterNotes"
+        ],
+        "summary": "Save Encounter Notes for a Patient",
+        "operationId": "saveEncounterNote",
+        "parameters": [
+          {
+            "name": "site-id",
+            "in": "path",
+            "description": "The VistA Site Identifier to save data to",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "500"
+          },
+          {
+            "name": "dfn",
+            "in": "path",
+            "description": "The Patient Identifier to save data for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1"
+          },
+          {
+            "name": "sensitivePatientAcknowledged",
+            "in": "query",
+            "description": "Timestamp used for auditing sensitive patient data access. If provided, sensitive patient data can be accessed.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2020-04-20T00:00z"
+          }
+        ],
+        "requestBody": {
+          "description": "Encounter Note to be saved",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "./swagger-definitions.json#/components/schemas/EncounterNoteSignature"
+              },
+              "example": {
+                "encounterNote": {
+                  "patientIen": null,
+                  "facilityCode": null,
+                  "locationIen": "23",
+                  "serviceCategory": "E",
+                  "procedures": [
+                    {
+                      "description": "Test code",
+                      "code": "CPT-1234",
+                      "ien": null,
+                      "codeType": null,
+                      "shortDescription": null,
+                      "selected": false,
+                      "modifiers": null
+                    }
+                  ],
+                  "visitRelatedCodes": "SC^1",
+                  "inpatient": "1",
+                  "noteTitleIen": "1644",
+                  "noteBody": "This is my humble note | and this is the next line.",
+                  "consultIen": "164",
+                  "providers": "1011",
+                  "cosignerIen": "11278",
+                  "linkType": null,
+                  "isHistorical": null,
+                  "diagnoses": [
+                    {
+                      "description": "Test code",
+                      "code": "ICD-1234",
+                      "ien": null,
+                      "codeType": null,
+                      "shortDescription": null,
+                      "primaryDiagnosis": false,
+                      "addToProblemList": true,
+                      "fromProblemList": false,
+                      "dateOnset": null,
+                      "dateOnsetRaw": null,
+                      "problemFlag": null,
+                      "serviceConnected": null,
+                      "serviceConnectedYN": null,
+                      "specialExposure": null
+                    }
+                  ],
+                  "healthFactors": [
+                    {
+                      "ien": "90471",
+                      "siteCode": null,
+                      "healthFactorCode": null,
+                      "healthFactorDescription": "Immunization",
+                      "parentCategory": null,
+                      "category": null,
+                      "healthFactorSeverity": {
+                        "desc": "H"
+                      },
+                      "healthFactorComment": "Some text comment"
+                    },
+                    {
+                      "ien": "90472",
+                      "siteCode": null,
+                      "healthFactorCode": null,
+                      "healthFactorDescription": "Immunization too",
+                      "parentCategory": null,
+                      "category": null,
+                      "healthFactorSeverity": {
+                        "desc": "MO"
+                      },
+                      "healthFactorComment": "Some text comment",
+                      "encounterDate": "2018-06-28T00:00Z"
+                    }
+                  ]
+                },
+                "electronicSignature": "RA1234!!"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Save Note Response, containing success and new Note IEN identifier",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./swagger-definitions.json#/components/schemas/Text"
+                },
+                "example": {
+                  "text": "Success. Note IEN = 14342"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid 'EncounterNoteSignature' request body"
+          },
+          "403": {
+            "description": "Attempting to access sensitive Patient record data"
+          }
+        }
+      }
+    },
+    "/sites/{site-id}/patients/{dfn}/encounter-notes/immunization": {
+      "post": {
+        "tags": [
+          "EncounterNotes"
+        ],
+        "summary": "Save Immunization Encounter Notes for a Patient",
+        "operationId": "saveImmunizationNote",
+        "parameters": [
+          {
+            "name": "site-id",
+            "in": "path",
+            "description": "The VistA Site Identifier to save data to",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "500"
+          },
+          {
+            "name": "dfn",
+            "in": "path",
+            "description": "The Patient Identifier to save data for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1"
+          },
+          {
+            "name": "sensitivePatientAcknowledged",
+            "in": "query",
+            "description": "Timestamp used for auditing sensitive patient data access. If provided, sensitive patient data can be accessed.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2020-04-20T00:00z"
+          }
+        ],
+        "requestBody": {
+          "description": "Immunization Encounter Note to be saved",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "./swagger-definitions.json#/components/schemas/EncounterImmunizationSignature"
+              },
+              "example": {
+                "encounterImmunization": {
+                  "patientIen": null,
+                  "facilityCode": null,
+                  "locationIen": "23",
+                  "date": null,
+                  "serviceCategory": "A",
+                  "cptCode": "90471^Immunization;90472^Immunization too",
+                  "visitRelatedTos": "SC^1",
+                  "comment": "Some text comment",
+                  "noteTitleIen": "1644",
+                  "immunizationIen": "118",
+                  "immunizationDescription": null,
+                  "encounterDate": "2018-06-28T00:00Z"
+                },
+                "electronicSignature": "RA1234!!"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Save Note Response, containing success and new Note IEN identifier",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./swagger-definitions.json#/components/schemas/Text"
+                },
+                "example": {
+                  "text": "Success. Note IEN = 14343"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid 'EncounterImmunizationSignature' request body"
+          },
+          "403": {
+            "description": "Attempting to access sensitive Patient record data"
+          }
+        }
+      }
+    },
+    "/sites/{site-id}/patients/{dfn}/encounter-notes/{note-id}": {
+      "get": {
+        "tags": [
+          "EncounterNotes"
+        ],
+        "summary": "Returns the Encounter Strings (aka. visit string) for an Encounter Note",
+        "operationId": "getNotesEncounterString",
+        "parameters": [
+          {
+            "name": "site-id",
+            "in": "path",
+            "description": "The VistA Site Identifier to retrieve data from",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "500"
+          },
+          {
+            "name": "dfn",
+            "in": "path",
+            "description": "The Patient Identifier to retrieve data for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1"
+          },
+          {
+            "name": "note-id",
+            "in": "path",
+            "description": "The IEN of TIU Encounter Note",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "14343"
+          },
+          {
+            "name": "sensitivePatientAcknowledged",
+            "in": "query",
+            "description": "Timestamp used for auditing sensitive patient data access. If provided, sensitive patient data can be accessed.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2020-04-20T00:00z"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Encounter Strings for an Encounter Note",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./swagger-definitions.json#/components/schemas/NotesEncounterStringResults"
+                },
+                "example": {
+                  "notesEncounterStrings": [
+                    {
+                      "tag": "500",
+                      "text": "1234;3210416.143053;A"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Attempting to access sensitive Patient record data"
+          }
+        }
+      }
+    },
+    "/sites/{site-id}/patients/{dfn}/notes": {
+      "post": {
+        "tags": [
+          "Notes"
+        ],
+        "summary": "Write a Patient Note",
+        "operationId": "writeNote",
+        "parameters": [
+          {
+            "name": "site-id",
+            "in": "path",
+            "description": "The VistA Site Identifier to save data to",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "500"
+          },
+          {
+            "name": "dfn",
+            "in": "path",
+            "description": "The Patient Identifier to save data for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1"
+          },
+          {
+            "name": "sensitivePatientAcknowledged",
+            "in": "query",
+            "description": "Timestamp used for auditing sensitive patient data access. If provided, sensitive patient data can be accessed.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2020-04-20T00:00z"
+          }
+        ],
+        "requestBody": {
+          "description": "Note to be saved",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "./swagger-definitions.json#/components/schemas/Note"
+              },
+              "example": {
+                "noteIen": null,
+                "locationIen": "23",
+                "noteTitleIen": "1644",
+                "date": "2020-07-31T12:00Z",
+                "serviceCategory": "A",
+                "authorDuz": "10958",
+                "cosignerDuz": "11278",
+                "consultIen": "164",
+                "prfIen": null,
+                "text": "This is my humble note | and this is the next line."
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The written Note IEN Identifier",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./swagger-definitions.json#/components/schemas/Text"
+                },
+                "example": {
+                  "textValue": "14349"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid 'Note' request body"
+          },
+          "403": {
+            "description": "Attempting to access sensitive Patient record data"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Notes"
+        ],
+        "summary": "Search and return a list of Signed Notes for a Patient",
+        "description": "Required Query Params: 'startDateTime' param required when 'endDateTime' param is provided",
+        "operationId": "getSignedNotes",
+        "parameters": [
+          {
+            "name": "site-id",
+            "in": "path",
+            "description": "The VistA Site Identifier to retrieve data from",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "500"
+          },
+          {
+            "name": "dfn",
+            "in": "path",
+            "description": "The Patient Identifier to retrieve data for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1"
+          },
+          {
+            "name": "startDateTime",
+            "in": "query",
+            "description": "Inclusive lower bound on search",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "1998-01-01T00:00:00Z"
+          },
+          {
+            "name": "endDateTime",
+            "in": "query",
+            "description": "Inclusive upper bound on the search",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "1998-12-31T23:59:59Z"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of notes to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": "20"
+            }
+          },
+          {
+            "name": "sensitivePatientAcknowledged",
+            "in": "query",
+            "description": "Timestamp used for auditing sensitive patient data access. If provided, sensitive patient data can be accessed.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2020-04-20T00:00z"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Signed Notes for a Patient, with flag stating whether it has images",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "./swagger-definitions.json#/components/schemas/NoteWithHasImages"
+                  },
+                  "example": [
+                    {
+                      "noteIen": "874",
+                      "locationIen": "137",
+                      "noteTitleIen": null,
+                      "date": "1998-11-13T18:43:54Z",
+                      "serviceCategory": null,
+                      "authorDuz": "11712",
+                      "text": "JEANIE'S TITLE",
+                      "hasImages": false
+                    },
+                    {
+                      "noteIen": "873",
+                      "locationIen": "137",
+                      "noteTitleIen": null,
+                      "date": "1998-11-13T18:39:56Z",
+                      "serviceCategory": null,
+                      "authorDuz": "11712",
+                      "text": "JEANIE'S TITLE",
+                      "hasImages": false
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Parameter 'endDateTime' provided, while 'startDateTime' is not provided."
+          },
+          "403": {
+            "description": "Attempting to access sensitive Patient record data"
+          }
+        }
+      }
+    },
+    "/sites/{site-id}/patients/{dfn}/notes/{note-id}": {
+      "get": {
+        "tags": [
+          "Notes"
+        ],
+        "summary": "Returns a specific Note for a Patient",
+        "operationId": "getNote",
+        "parameters": [
+          {
+            "name": "site-id",
+            "in": "path",
+            "description": "The VistA Site Identifier to retrieve data from",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "500"
+          },
+          {
+            "name": "dfn",
+            "in": "path",
+            "description": "The Patient Identifier to retrieve data for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "1"
+          },
+          {
+            "name": "note-id",
+            "in": "path",
+            "description": "The IEN of Note to retrieve",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "14349"
+          },
+          {
+            "name": "sensitivePatientAcknowledged",
+            "in": "query",
+            "description": "Timestamp used for auditing sensitive patient data access. If provided, sensitive patient data can be accessed.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2020-04-20T00:00z"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Patient Note text content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "./swagger-definitions.json#/components/schemas/Text"
+                },
+                "example": {
+                  "textValue": " LOCAL TITLE: LR ANATOMIC PATHOLOGY                              \r\nDATE OF NOTE: APR 16,2021@19:08:18   ENTRY DATE: APR 16,2021@19:08:18       \r\n      AUTHOR: WARDCLERK,FIFTYTHRE  EXP COSIGNER: WARDCLERK,SIXTYEIGHT      \r\n     URGENCY:                            STATUS: UNSIGNED                      \r\n\r\n You may not VIEW this UNSIGNED LR ANATOMIC PATHOLOGY.\r\n"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Attempting to access sensitive Patient record data"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "requireVamfJwtKey": {
+        "type": "apiKey",
+        "name": "X-VAMF-JWT",
+        "in": "header"
+      }
+    }
+  }
+}

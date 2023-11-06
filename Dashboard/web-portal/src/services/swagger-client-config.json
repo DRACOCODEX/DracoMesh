@@ -1,0 +1,11 @@
+{
+  "language": "java",
+  "library": "resttemplate",
+  "dateLibrary": "java8",
+  "modelPackage": "gov.va.vamf.encounter.v2.model",
+  "apiPackage": "gov.va.vamf.encounter.v2.client",
+  "groupId": "gov.va.vamf.service.clients",
+  "artifactId": "vista-encounter-client",
+  "artifactVersion": "@swagger.contract.version@",
+  "artifactDescription": "VistA Encounter Service Client Library"
+}

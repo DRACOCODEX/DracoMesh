@@ -1,0 +1,908 @@
+{
+  "components": {
+    "schemas": {
+      "CosignRequest": {
+        "type": "object",
+        "description": "Request for Saving and Signing an Encounter Note with a Cosigner",
+        "required": [
+          "esig",
+          "authorDuz",
+          "noteIen"
+        ],
+        "properties": {
+          "esig": {
+            "type": "string",
+            "description": "The network-encrypted string of what the user entered as his/her electronic signature code",
+            "example": "RA1234!!"
+          },
+          "titleIen": {
+            "type": "string",
+            "description": "The record number in the TIU DOCUMENT FILE for the record which has been electronically signed",
+            "example": "1644"
+          },
+          "encounter": {
+            "type": "string",
+            "description": "Encounter String, following the pattern 'locationIEN;vistaTimestamp;A or H or E'",
+            "example": "23;3180425.163242;E"
+          },
+          "text": {
+            "type": "string",
+            "description": "Text associated to the note. For multi-line notes, each line must be separated by a \"|\" character.",
+            "example": "This is my humble note | and this is the next line."
+          },
+          "authorDuz": {
+            "type": "string",
+            "description": "The site-specific IEN/DUZ for the note's author",
+            "example": "10958"
+          },
+          "cosignerDuz": {
+            "type": "string",
+            "description": "The site-specific IEN/DUZ for the note's co-signer",
+            "example": "11278"
+          },
+          "consultIen": {
+            "type": "string",
+            "pattern": "^\\d+",
+            "description": "The IEN of the note's linked consult",
+            "example": "164"
+          },
+          "prfIen": {
+            "type": "string",
+            "description": "The IEN of the notes linked patient record flag, when applicable",
+            "example": "1465"
+          },
+          "noteIen": {
+            "type": "string",
+            "description": "Unique Identifier of the note being cosigned",
+            "example": "22222"
+          }
+        }
+      },
+      "EncounterCode": {
+        "type": "object",
+        "description": "Diagnostic or Procedure Encounter Code",
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "Text description of the Encounter Code",
+            "example": "Localized Salmonella Infection, unspecified"
+          },
+          "code": {
+            "type": "string",
+            "description": "Unique Lexicon Concept Identifier",
+            "example": "A02.20"
+          },
+          "ien": {
+            "type": "string",
+            "description": "Unique Encounter Code Identifier",
+            "example": "5000013"
+          },
+          "codeType": {
+            "type": "string",
+            "description": "Encounter Code System (ICD for Diagnosis or CPT for Procedure)",
+            "example": "ICD-10-CM"
+          },
+          "shortDescription": {
+            "type": "string",
+            "description": "Deprecated - Not populated",
+            "deprecated": true
+          }
+        }
+      },
+      "EncounterImmunization": {
+        "type": "object",
+        "description": "Information needed to enter an Immunization Encounter Note for a Patient",
+        "properties": {
+          "patientIen": {
+            "type": "string",
+            "description": "Deprecated - Unused",
+            "deprecated": true
+          },
+          "facilityCode": {
+            "type": "string",
+            "description": "Deprecated - Unused",
+            "deprecated": true
+          },
+          "locationIen": {
+            "type": "string",
+            "description": "Unique Identifier of the location of the visit for this note",
+            "example": "23"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Deprecated - Unused",
+            "deprecated": true
+          },
+          "serviceCategory": {
+            "type": "string",
+            "description": "Type of service provided. Must be 'A' (ambulatory), 'H' (hospitalization), 'T' (telecommunications) or 'E' (event (historical)).",
+            "example": "A"
+          },
+          "cptCode": {
+            "type": "string",
+            "description": "The health factors associated with this immunization. The format for each entry is 'ien^description' separated by a ';' character.",
+            "example": "90471^Immunization;90472^Immunization too"
+          },
+          "visitRelatedTos": {
+            "type": "string",
+            "description": "Comma delimited list of visit-related-to codes",
+            "example": "SC^1"
+          },
+          "comment": {
+            "type": "string",
+            "description": "Note comment text",
+            "example": "Some text comment"
+          },
+          "noteTitleIen": {
+            "type": "string",
+            "description": "Unique Identifier of the note title to be used for this note",
+            "example": "1644"
+          },
+          "immunizationIen": {
+            "type": "string",
+            "description": "Unique Identifier of the immunization the patient was administered",
+            "example": "118"
+          },
+          "immunizationDescription": {
+            "type": "string",
+            "description": "Deprecated - Unused",
+            "deprecated": true
+          },
+          "encounterDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date of patient encounter. Must be in the past. Future dates not allowed.",
+            "example": "2018-06-28T00:00Z"
+          }
+        }
+      },
+      "EncounterNote": {
+        "type": "object",
+        "description": "Information needed to enter an Encounter Note for a Patient",
+        "required": [
+          "locationIen",
+          "serviceCategory",
+          "noteBody",
+          "providers",
+          "noteTitleIen"
+        ],
+        "properties": {
+          "patientIen": {
+            "type": "string",
+            "description": "Deprecated - Unused",
+            "deprecated": true
+          },
+          "facilityCode": {
+            "type": "string",
+            "description": "Deprecated - Unused",
+            "deprecated": true
+          },
+          "locationIen": {
+            "type": "string",
+            "description": "Unique Identifier of the location of the visit for this note",
+            "example": "23"
+          },
+          "serviceCategory": {
+            "type": "string",
+            "enum": [
+              "A",
+              "E",
+              "H",
+              "T"
+            ],
+            "description": "Type of service provided. Must be 'A' (ambulatory), 'H' (hospitalization), 'T' (telecommunications) or 'E' (event (historical))."
+          },
+          "procedures": {
+            "type": "array",
+            "description": "A collection of procedure CPT codes for the submitted note",
+            "items": {
+              "$ref": "#/components/schemas/EncounterProcedureCPTCode"
+            }
+          },
+          "visitRelatedCodes": {
+            "type": "string",
+            "description": "Comma delimited list of visit-related-to codes",
+            "example": "SC^1"
+          },
+          "inpatient": {
+            "type": "string",
+            "description": "Flag indicating whether the patient is inpatient (1) or not (0)",
+            "example": "1"
+          },
+          "noteTitleIen": {
+            "type": "string",
+            "description": "Unique Identifier of the note title to be used for this note",
+            "example": "1644"
+          },
+          "noteBody": {
+            "type": "string",
+            "description": "Text associated to the note. For multi-line notes, each line must be separated by a \"|\" character.",
+            "example": "This is my humble note | and this is the next line."
+          },
+          "consultIen": {
+            "type": "string",
+            "pattern": "^\\d+",
+            "description": "Unique Identifier of the note's linked consult",
+            "example": "164"
+          },
+          "providers": {
+            "type": "string",
+            "description": "Unique Identifier of the patient provider",
+            "example": "1011"
+          },
+          "cosignerIen": {
+            "type": "string",
+            "description": "Unique Identifier of the note's co-signer",
+            "example": "63"
+          },
+          "linkType": {
+            "type": "string",
+            "description": "Deprecated - Unused",
+            "deprecated": true
+          },
+          "isHistorical": {
+            "type": "boolean",
+            "description": "Deprecated - Unused",
+            "deprecated": true
+          },
+          "diagnoses": {
+            "type": "array",
+            "description": "A collection of diagnostic ICD codes for the submitted note",
+            "items": {
+              "$ref": "#/components/schemas/EncounterDiagnosisICDCode"
+            }
+          },
+          "healthFactors": {
+            "type": "array",
+            "description": "A collection of health factors for the submitted note",
+            "items": {
+              "$ref": "#/components/schemas/HealthFactor"
+            }
+          },
+          "encounterDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date of patient encounter. Must be in the past. Future dates not allowed.",
+            "example": "2018-06-28T00:00Z"
+          }
+        }
+      },
+      "EncounterImmunizationSignature": {
+        "type": "object",
+        "description": "Information needed to enter an Immunization Encounter Note, including the eSIG, for a Patient",
+        "required": [
+          "encounterImmunization",
+          "electronicSignature"
+        ],
+        "properties": {
+          "encounterImmunization": {
+            "$ref": "#/components/schemas/EncounterImmunization",
+            "description": "Immunization Encounter Note information to be entered"
+          },
+          "electronicSignature": {
+            "type": "string",
+            "description": "The network-encrypted string of what the user entered as his/her electronic signature code.",
+            "example": "RA1234!!"
+          }
+        }
+      },
+      "EncounterNoteSignature": {
+        "type": "object",
+        "description": "Information needed to enter an Encounter Note, including the eSIG, for a Patient",
+        "required": [
+          "encounterNote",
+          "electronicSignature"
+        ],
+        "properties": {
+          "encounterNote": {
+            "$ref": "#/components/schemas/EncounterNote",
+            "description": "Encounter Note information to be entered"
+          },
+          "electronicSignature": {
+            "type": "string",
+            "description": "The network-encrypted string of what the user entered as his/her electronic signature code.",
+            "example": "RA1234!!"
+          }
+        }
+      },
+      "EncounterDiagnosisICDCode": {
+        "type": "object",
+        "description": "Diagnostic ICD Encounter Code",
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "Text description of the ICD Diagnostic code",
+            "example": "Dementia associated with alcoholism (ICD-9-CM 291.2)"
+          },
+          "code": {
+            "type": "string",
+            "description": "Unique Lexicon Concept Identifier",
+            "example": "291.2"
+          },
+          "ien": {
+            "type": "string",
+            "description": "Unique Encounter Code Identifier",
+            "example": "18"
+          },
+          "codeType": {
+            "type": "string",
+            "description": "Encounter Code System",
+            "example": "ICD-9-CM"
+          },
+          "shortDescription": {
+            "type": "string",
+            "description": "Deprecated - Not populated",
+            "deprecated": true
+          },
+          "primaryDiagnosis": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether or not this is the Primary Diagnosis"
+          },
+          "addToProblemList": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether or not this Diagnosis should be added to the problem list"
+          },
+          "fromProblemList": {
+            "type": "boolean",
+            "default": false,
+            "description": "Deprecated - Not populated",
+            "deprecated": true
+          },
+          "dateOnset": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Diagnosis unique code",
+            "example": "1994-10-18T04:00:00Z"
+          },
+          "dateOnsetRaw": {
+            "type": "string",
+            "description": "The non-parsed string for 'dateOnset'. If the 'dateOnset' is not parsable, this field will be populated, but 'dateOnset' will not.",
+            "example": "10/18/94"
+          },
+          "problemFlag": {
+            "type": "string",
+            "description": "--- No description available ---",
+            "example": "--- No example available ---"
+          },
+          "serviceConnected": {
+            "type": "string",
+            "description": "Service Connected Condition Type",
+            "example": "NSC"
+          },
+          "serviceConnectedYN": {
+            "type": "string",
+            "description": "Whether or not the Diagnosis code is service connected, 'Y' for yes, 'N' for no",
+            "example": "N"
+          },
+          "specialExposure": {
+            "type": "string",
+            "description": "--- No description available ---",
+            "example": "--- No example available ---"
+          }
+        }
+      },
+      "EncounterProcedureCPTCode": {
+        "type": "object",
+        "description": "Procedure CPT Encounter Code",
+        "required": [
+          "code",
+          "description"
+        ],
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "Text description of the CPT Procedure code",
+            "example": "Brief Visit"
+          },
+          "code": {
+            "type": "string",
+            "description": "Unique Lexicon Concept Identifier",
+            "example": "99201"
+          },
+          "ien": {
+            "type": "string",
+            "description": "Deprecated - Not populated",
+            "deprecated": true
+          },
+          "codeType": {
+            "type": "string",
+            "description": "Deprecated - Not populated",
+            "deprecated": true
+          },
+          "shortDescription": {
+            "type": "string",
+            "description": "Deprecated - Not populated",
+            "deprecated": true
+          },
+          "selected": {
+            "type": "boolean",
+            "default": false,
+            "description": "Deprecated - Not populated",
+            "deprecated": true
+          },
+          "modifiers": {
+            "type": "array",
+            "description": "CPT code modifiers associated with the Procedure CPT Code",
+            "items": {
+              "$ref": "#/components/schemas/Modifier"
+            }
+          }
+        }
+      },
+      "HealthFactor": {
+        "type": "object",
+        "description": "Health Factors to be submitted when writing an Encounter Note",
+        "properties": {
+          "ien": {
+            "type": "string",
+            "description": "Unique Identifier of the health factor",
+            "example": "90471"
+          },
+          "siteCode": {
+            "type": "string",
+            "description": "Deprecated - Unused",
+            "deprecated": true
+          },
+          "healthFactorCode": {
+            "type": "string",
+            "description": "Deprecated - Unused",
+            "deprecated": true
+          },
+          "healthFactorDescription": {
+            "type": "string",
+            "description": "Description text of the health factor",
+            "example": "Immunization"
+          },
+          "parentCategory": {
+            "type": "string",
+            "description": "Deprecated - Unused",
+            "deprecated": true
+          },
+          "category": {
+            "type": "string",
+            "description": "Deprecated - Unused",
+            "deprecated": true
+          },
+          "healthFactorSeverity": {
+            "$ref": "#/components/schemas/HealthFactorSeverity",
+            "description": "Severity of the health factor"
+          },
+          "healthFactorComment": {
+            "type": "string",
+            "description": "Comment text for the added health factor",
+            "example": "Some text comment"
+          }
+        }
+      },
+      "HealthFactorSeverity": {
+        "type": "object",
+        "description": "Health Factor severity codes",
+        "properties": {
+          "desc": {
+            "type": "string",
+            "enum": [
+              "M",
+              "MO",
+              "H"
+            ]
+          }
+        }
+      },
+      "Modifier": {
+        "type": "object",
+        "description": "CPT code modifiers are two-digit codes linked to the CPT that provide a further description of the evaluation and management (E/M) and/or procedures performed during the office visit",
+        "required": [
+          "code",
+          "ien"
+        ],
+        "properties": {
+          "ien": {
+            "type": "string",
+            "description": "Unique Identifier of the CPT Modifier",
+            "example": "737"
+          },
+          "description": {
+            "type": "string",
+            "description": "Descriptive name of the CPT Modifier",
+            "example": "AUC CONSULT NOT PROVIDED"
+          },
+          "name": {
+            "type": "string",
+            "description": "Deprecated - Unused",
+            "deprecated": true
+          },
+          "code": {
+            "type": "string",
+            "description": "The two digit CPT Modifier Code",
+            "example": "MH"
+          },
+          "selected": {
+            "type": "boolean",
+            "default": false,
+            "description": "Deprecated - Unused",
+            "deprecated": true
+          }
+        }
+      },
+      "NoteSigned": {
+        "type": "object",
+        "description": "A written/signed note",
+        "properties": {
+          "noteIen": {
+            "type": "string",
+            "description": "Unique Identifier of the written/signed note",
+            "example": "14346"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "description": "Total number of pages in note"
+          },
+          "lastPageRecd": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0,
+            "description": "Last recorded page in the note"
+          },
+          "explanation": {
+            "type": "string",
+            "description": "Deprecated - Not populated in VIA",
+            "deprecated": true
+          },
+          "status": {
+            "type": "string",
+            "description": "States whether the not is signed or not",
+            "example": "signed"
+          }
+        }
+      },
+      "NoteTitle": {
+        "type": "object",
+        "description": "Title available for Patient Notes",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Deprecated - Not populated",
+            "deprecated": true
+          },
+          "noteTitleIen": {
+            "type": "string",
+            "description": "Unique Identifier of the note title",
+            "example": "1295"
+          },
+          "noteTitles": {
+            "type": "array",
+            "description": "List of note titles",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "ACROMEGALY  <C&P ACROMEGALY>",
+              "C&P ACROMEGALY",
+              "C&P ACROMEGALY  <C&P ACROMEGALY>"
+            ]
+          },
+          "isConsult": {
+            "type": "boolean",
+            "description": "Whether or not the note title is for a consult",
+            "default": false
+          }
+        }
+      },
+      "Provider": {
+        "type": "object",
+        "description": "Provider at a VistA Site",
+        "properties": {
+          "duz": {
+            "type": "string",
+            "description": "Unique Identifier of the Provider",
+            "example": "10000000278"
+          },
+          "providerName": {
+            "type": "string",
+            "description": "Name of the Provider",
+            "example": "ZEBRA,ANDY"
+          },
+          "loginSiteCode": {
+            "type": "string",
+            "description": "The VistA Site code the Provider can login to",
+            "example": "500"
+          },
+          "primary": {
+            "type": "boolean",
+            "description": "Deprecated - Not populated",
+            "deprecated": true
+          },
+          "selected": {
+            "type": "boolean",
+            "description": "Deprecated - Not populated",
+            "deprecated": true
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "description": "CPRS User at a VistA Site",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Title of the User",
+            "example": "Physician"
+          },
+          "duz": {
+            "type": "string",
+            "description": "Unique Identifier of the User",
+            "example": "11517"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the User",
+            "example": "Three,Physician"
+          }
+        }
+      },
+      "NotesEncounterString": {
+        "type": "object",
+        "description": "An Encounter String for an existing Encounter Note",
+        "properties": {
+          "tag": {
+            "type": "string",
+            "description": "The VistA Site Identifier where the Note with the Encounter String was entered",
+            "example": "500"
+          },
+          "text": {
+            "type": "string",
+            "description": "Encounter String, following the pattern 'locationIEN;vistaTimestamp;A or H or E'",
+            "example": "23;3210416.143053;A"
+          },
+          "notesEncounterString": {
+            "type": "array",
+            "description": "Deprecated - Not populated",
+            "items": {
+              "type": "string"
+            },
+            "deprecated": true
+          }
+        }
+      },
+      "NotesEncounterStringResults": {
+        "type": "object",
+        "description": "The Encounter strings for an existing Encounter Note",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Deprecated - Not populated",
+            "deprecated": true
+          },
+          "isTextOnly": {
+            "type": "boolean",
+            "default": false,
+            "description": "Deprecated - Not populated in VIA",
+            "deprecated": true
+          },
+          "notesEncounterStrings": {
+            "type": "array",
+            "description": "A collection of note encounter strings",
+            "items": {
+              "$ref": "#/components/schemas/NotesEncounterString"
+            }
+          }
+        }
+      },
+      "Text": {
+        "type": "object",
+        "description": "Text wrapper object for a result String value",
+        "properties": {
+          "textValue": {
+            "type": "string",
+            "description": "Any text string or value",
+            "example": "Success. Note IEN = 14342"
+          }
+        }
+      },
+      "VisitRelatedTo": {
+        "type": "object",
+        "description": "Service Connected Conditions for a Visit",
+        "properties": {
+          "title": {
+            "description": "Name of service condition",
+            "type": "string",
+            "example": "Agent Orange"
+          },
+          "enabled": {
+            "type": "boolean",
+            "default": false,
+            "description": "Deprecated - Not populated",
+            "deprecated": true
+          },
+          "checked": {
+            "type": "boolean",
+            "default": false,
+            "description": "Deprecated - Not populated",
+            "deprecated": true
+          },
+          "code": {
+            "type": "string",
+            "description": "Abbreviation of service condition",
+            "example": "AO"
+          },
+          "isAllowed": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether or not the service condition is allowed for the Patient"
+          },
+          "defaultValue": {
+            "type": "string",
+            "description": "--- No description available ---",
+            "example": "--- No example available ---"
+          },
+          "abbreviation": {
+            "type": "string",
+            "description": "Deprecated - Not populated",
+            "deprecated": true
+          },
+          "nameOfRelatedToSvcCondition": {
+            "type": "string",
+            "description": "Deprecated - Not populated",
+            "deprecated": true
+          }
+        }
+      },
+      "VisitType": {
+        "type": "object",
+        "description": "Visit Types for a Patient, including their available Procedure CPT codes",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Deprecated - Not populated",
+            "deprecated": true
+          },
+          "description": {
+            "type": "string",
+            "description": "A description of the visit type",
+            "example": "NEW PATIENT"
+          },
+          "selected": {
+            "type": "boolean",
+            "default": false,
+            "description": "Deprecated - Not populated",
+            "deprecated": true
+          },
+          "sections": {
+            "type": "array",
+            "description": "Collection of Procedure CPT codes available for the visit type",
+            "items": {
+              "$ref": "#/components/schemas/EncounterProcedureCPTCode"
+            }
+          }
+        }
+      },
+      "Note": {
+        "type": "object",
+        "description": "Patient Note for a Visit",
+        "required": [
+          "locationIen",
+          "date",
+          "noteTitleIen",
+          "authorDuz",
+          "text",
+          "serviceCategory"
+        ],
+        "properties": {
+          "noteIen": {
+            "type": "string",
+            "pattern": "^\\d+",
+            "description": "Unique Identifier of the note",
+            "example": "874"
+          },
+          "locationIen": {
+            "type": "string",
+            "pattern": "^\\d+",
+            "description": "Unique Identifier of the location of the visit for this note",
+            "example": "23"
+          },
+          "noteTitleIen": {
+            "type": "string",
+            "pattern": "^\\d+",
+            "description": "Unique Identifier of the note title to be used for this note",
+            "example": "1644"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The date-time of the visit for this note",
+            "example": "2020-07-31T12:00Z"
+          },
+          "serviceCategory": {
+            "type": "string",
+            "enum": [
+              "A",
+              "E",
+              "H",
+              "T"
+            ],
+            "description": "Type of service provided. Must be 'A' (ambulatory), 'H' (hospitalization), 'T' (telecommunications) or 'E' (event (historical))."
+          },
+          "authorDuz": {
+            "type": "string",
+            "pattern": "^\\d+",
+            "description": "The site-specific IEN/DUZ for the note's author",
+            "example": "10958"
+          },
+          "cosignerDuz": {
+            "type": "string",
+            "pattern": "^\\d+",
+            "description": "The site-specific IEN/DUZ for the note's co-signer",
+            "example": "11278"
+          },
+          "consultIen": {
+            "type": "string",
+            "pattern": "^\\d+",
+            "description": "The IEN of the note's linked consult",
+            "example": "164"
+          },
+          "prfIen": {
+            "type": "string",
+            "pattern": "^\\d+",
+            "description": "The IEN of the notes linked patient record flag",
+            "example": "1465"
+          },
+          "text": {
+            "type": "string",
+            "description": "The text can include any json-encoded characters, with the | (pipe) character used as a linebreak for input. If none are provided, linebreaks will be inserted every 80 characters and a page break every 300 lines.",
+            "example": "This is my humble note | and this is the next line."
+          }
+        }
+      },
+      "NoteWithHasImages": {
+        "description": "Patient Note for a Visit, indicating whether or not there are any linked images",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Note",
+            "description": "The patient note for a visit"
+          },
+          {
+            "type": "object",
+            "required": [
+              "hasImages"
+            ],
+            "properties": {
+              "hasImages": {
+                "type": "boolean",
+                "description": "Whether the note has linked images."
+              }
+            }
+          }
+        ]
+      },
+      "ApiError": {
+        "type": "object",
+        "description": "Deprecated - Not used",
+        "deprecated": true,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "code": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "integer"
+          },
+          "detail": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
