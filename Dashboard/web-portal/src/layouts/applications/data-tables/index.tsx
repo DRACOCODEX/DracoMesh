@@ -32,7 +32,7 @@ import ClusterData from "./data/clusterData";
 
 export interface Regions {
   westCoastStatus: number;
-  midWestCoastStatusDinoHeadNode: number;
+  midWestCoastStatusDrakubeGraphyonNode: number;
   midWestCoastStatusNDRCComms: number;
   eastCoastStatus: number;
   id: number;
@@ -44,7 +44,7 @@ function DataTables(): JSX.Element {
   const { data: regionsData } = useRegionData();
   const [regions, setRegions] = useState<Regions>({
     westCoastStatus: 0,
-    midWestCoastStatusDinoHeadNode: 100,
+    midWestCoastStatusDrakubeGraphyonNode: 100,
     midWestCoastStatusNDRCComms: 0,
     eastCoastStatus: 100,
     id: 0
@@ -55,7 +55,7 @@ function DataTables(): JSX.Element {
     if (regionsData) {
       setRegions({
         westCoastStatus: regionsData.westCoastStatus,
-        midWestCoastStatusDinoHeadNode: regionsData.midWestCoastStatusDinoHeadNode,
+        midWestCoastStatusDrakubeGraphyonNode: regionsData.midWestCoastStatusDrakubeGraphyonNode,
         midWestCoastStatusNDRCComms: regionsData.midWestCoastStatusNDRCComms, 
         eastCoastStatus: regionsData.eastCoastStatus,
         id: regionsData.id
