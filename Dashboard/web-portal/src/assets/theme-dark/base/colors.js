@@ -19,14 +19,6 @@ Coded by www.creative-tim.com
  * You can customized the colors for the entire Material Dashboard 2 PRO React using thie file.
  */
 // TODO: Finalize colors
-/*
-colors from dinohead:
-  dark blue: #120458
-  very purple: #7a04eb
-  light pink: #fe75fe
-  very pink: #ff00a0
-  bright red: #ff124f
-*/
 const colors = {
   background: {
     default: "#1a2035", // dark gray old: #1a2035
