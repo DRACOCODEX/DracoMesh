@@ -4,8 +4,8 @@ React web application designed to provide administrative capabilities for Drakub
 It is built on top of the Material Dashboard 2 PRO React template licensed through Creative Tim.
 
 ## Description
-The web application will allow viewing/editing of related patient and provider data through an admin interface. The data will
-be populated in the application through calls to a Commit Enterprise REST API. <link to api documentation>
+The web application will allow viewing/editing of related data through an admin interface. The data will
+be populated in the application through calls to the GraphQL Mesh Gateway and Server.
 
 The tech stack is built around a React 18 interface to allow for real-time notifications and data updates. The tech details are below:
 
