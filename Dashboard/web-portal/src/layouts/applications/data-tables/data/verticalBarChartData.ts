@@ -25,12 +25,12 @@ interface Props {
 
 function verticalBarChartData(regions: Regions): Props {
   return {
-    labels: ["Azure Node, West US", "Dinohead Lab, MidWest US", "NDRC Comms Trailer, MidWest US", "OCI Node, East US"],
+    labels: ["Azure Node, West US", "DrakubeGraphyon Lab, MidWest US", "NDRC Comms Trailer, MidWest US", "OCI Node, East US"],
     datasets: [
       {
         label: "Cluster Status",
         color: "success",
-        data: [regions.westCoastStatus, regions.midWestCoastStatusDinoHeadNode, regions.midWestCoastStatusNDRCComms, regions.eastCoastStatus],
+        data: [regions.westCoastStatus, regions.midWestCoastStatusDrakubeGraphyonNode, regions.midWestCoastStatusNDRCComms, regions.eastCoastStatus],
       },
     ],
 };
