@@ -11,7 +11,7 @@ function DemoControls(): JSX.Element {
     const { data: regionsData } = useRegionData();
     const [regions, setRegions] = useState<Regions>({
       westCoastStatus: 0,
-      midWestCoastStatusDinoHeadNode: 0,
+      midWestCoastStatusDrakubeGraphyonNode: 0,
       midWestCoastStatusNDRCComms: 0,
       eastCoastStatus: 0,
       id: 0
@@ -22,7 +22,7 @@ function DemoControls(): JSX.Element {
       if (regionsData) {
         setRegions({
           westCoastStatus: regionsData.westCoastStatus,
-          midWestCoastStatusDinoHeadNode: regionsData.midWestCoastStatusDinoHeadNode,
+          midWestCoastStatusDrakubeGraphyonNode: regionsData.midWestCoastStatusDrakubeGraphyonNode,
           midWestCoastStatusNDRCComms: regionsData.midWestCoastStatusNDRCComms, 
           eastCoastStatus: regionsData.eastCoastStatus,
           id: regionsData.id
@@ -53,7 +53,7 @@ const regionToggle = (event: React.ChangeEvent<HTMLInputElement>, value: any) =>
     <FormControl component="fieldset" variant="standard" sx={{marginBottom: '50px'}}>
     <FormGroup>
         <PercentageSlider value={regions.westCoastStatus} onChangeCommited={regionStatusConfirmed} onChange={regionToggle} name="westCoastStatus" label="West"/>
-        <PercentageSlider value={regions.midWestCoastStatusDinoHeadNode} onChangeCommited={regionStatusConfirmed} onChange={regionToggle} name="midWestCoastStatusDinoHeadNode" label="MidWest DinoHead Node"/>
+        <PercentageSlider value={regions.midWestCoastStatusDrakubeGraphyonNode} onChangeCommited={regionStatusConfirmed} onChange={regionToggle} name="midWestCoastStatusDrakubeGraphyonNode" label="MidWest DrakubeGraphyon Node"/>
         <PercentageSlider value={regions.midWestCoastStatusNDRCComms} onChangeCommited={regionStatusConfirmed} onChange={regionToggle} name="midWestCoastStatusNDRCComms" label="MidWest NDRC Comms"/>
         <PercentageSlider value={regions.eastCoastStatus} onChangeCommited={regionStatusConfirmed} onChange={regionToggle} name="eastCoastStatus" label="East"/>
         </FormGroup>
