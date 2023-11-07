@@ -62,7 +62,7 @@ const [annotation, setAnnotation] = useState("");
         <circle className={determineIfAlertNeeded(props.region.eastCoastStatus)} r={10} fill={determineStatusFill(props.region.eastCoastStatus)}/>
       </Marker>
       <Marker coordinates={[-96.0430, 41.1545]} onMouseEnter={() => setAnnotation("Mid West")}>
-        <circle className={determineIfAlertNeeded(Math.min(props.region.midWestCoastStatusDinoHeadNode, props.region.midWestCoastStatusNDRCComms))} r={10} fill={determineStatusFill(Math.min(props.region.midWestCoastStatusDinoHeadNode, props.region.midWestCoastStatusNDRCComms))}/>
+        <circle className={determineIfAlertNeeded(Math.min(props.region.midWestCoastStatusDrakubeGraphyonNode, props.region.midWestCoastStatusNDRCComms))} r={10} fill={determineStatusFill(Math.min(props.region.midWestCoastStatusDrakubeGraphyonNode, props.region.midWestCoastStatusNDRCComms))}/>
         <text alignmentBaseline="central" dx={-4} fontSize={15} style={{fontWeight: 'bold'}}>2</text>
       </Marker>
       <Marker coordinates={[-121.8853, 37.3387]} onMouseEnter={() => setAnnotation("West Coast")}>
@@ -127,7 +127,7 @@ const [annotation, setAnnotation] = useState("");
           }}
         >
           <text x="-8" y='-40' textAnchor="end" alignmentBaseline="middle" fill="#000">
-            {"Dinohead Node"}
+            {"DrakubeGraphyon Node"}
           </text>
           <text x="-8" y="-20" textAnchor="end" alignmentBaseline="middle" fill="F53">
             {"Region: Mid West"}
