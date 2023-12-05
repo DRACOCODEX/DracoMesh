@@ -6,6 +6,7 @@ This name evokes the image of a mythical dragon that stands at the nexus of Kube
 - Graphyon blends "GraphQL" and the suffix "-on," often used in technology to denote particles or components. It implies a foundational element that interfaces seamlessly with GraphQL to provide a common data model.
 
 ## Overview
+- Extension and/ utlization of 2 popular Open Source Projects: GraphQL MESH and REACT.
 - Easily integrates with your existing tools or any CNCF tool.
 - Reduce Deployment Risk: Eliminate risk of configuration drift by declaratively configuring Kubernetes and the API Gateway within a single YAML file. Limit who can make configuration changes through Role-Based Access Controls (RBAC).
 - Increase Developer Productivity: Provide a frictionless onboarding and service discovery experience to drive API consumption. Ensure developers always have access to the most up-to-date documentation with automatic updates.
