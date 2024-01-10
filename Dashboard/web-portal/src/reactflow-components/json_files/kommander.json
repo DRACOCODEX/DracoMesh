@@ -13,7 +13,7 @@
               "nodeRoleKubernetesIoControlPlane": "",
               "nodeKubernetesIoExcludeFromExternalLoadBalancers": ""
             },
-            "name": "raptor-control-plane-czhbd"
+            "name": "control-plane-czhbd"
           }
         },
         {
@@ -27,7 +27,7 @@
               "nodeRoleKubernetesIoControlPlane": "",
               "nodeKubernetesIoExcludeFromExternalLoadBalancers": ""
             },
-            "name": "raptor-control-plane-7vzbx"
+            "name": "control-plane-7vzbx"
           }
         },
         {
@@ -41,7 +41,7 @@
               "nodeRoleKubernetesIoControlPlane": "",
               "nodeKubernetesIoExcludeFromExternalLoadBalancers": ""
             },
-            "name": "raptor-md-0-589b884cb5-zgnhq"
+            "name": "md-0-589b884cb5-zgnhq"
           }
         },
         {
@@ -55,7 +55,7 @@
               "nodeRoleKubernetesIoControlPlane": "",
               "nodeKubernetesIoExcludeFromExternalLoadBalancers": ""
             },
-            "name": "raptor-md-0-589b884cb5-d6d26"
+            "name": "md-0-589b884cb5-d6d26"
           }
         },
         {
@@ -69,7 +69,7 @@
               "nodeRoleKubernetesIoControlPlane": "",
               "nodeKubernetesIoExcludeFromExternalLoadBalancers": ""
             },
-            "name": "raptor-control-plane-jmnwv"
+            "name": "control-plane-jmnwv"
           }
         },
         {
@@ -83,7 +83,7 @@
               "nodeRoleKubernetesIoControlPlane": "",
               "nodeKubernetesIoExcludeFromExternalLoadBalancers": ""
             },
-            "name": "raptor-md-0-589b884cb5-gpd8c"
+            "name": "md-0-589b884cb5-gpd8c"
           }
         },
         {
@@ -97,7 +97,7 @@
               "nodeRoleKubernetesIoControlPlane": "",
               "nodeKubernetesIoExcludeFromExternalLoadBalancers": ""
             },
-            "name": "raptor-md-0-589b884cb5-9wcwn"
+            "name": "md-0-589b884cb5-9wcwn"
           }
         }
       ]
@@ -109,7 +109,7 @@
             "name": "CoreDNS"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-czhbd",
+            "nodeName": "control-plane-czhbd",
             "containers": [
               {
                 "name": "nginx"
@@ -133,7 +133,7 @@
             "name": "Kube-Prometheus"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-czhbd",
+            "nodeName": "control-plane-czhbd",
             "containers": [
               {
                 "name": "nginx"
@@ -157,7 +157,7 @@
             "name": "Kommander-Licensing"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-czhbd",
+            "nodeName": "control-plane-czhbd",
             "containers": [
               {
                 "name": "nginx"
@@ -181,7 +181,7 @@
             "name": "fluent bit"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-czhbd",
+            "nodeName": "control-plane-czhbd",
             "containers": [
               {
                 "name": "nginx"
@@ -205,7 +205,7 @@
             "name": "capg-controller-manager"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-czhbd",
+            "nodeName": "control-plane-czhbd",
             "containers": [
               {
                 "name": "nginx"
@@ -229,7 +229,7 @@
             "name": "capv-controller-manager"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-czhbd",
+            "nodeName": "control-plane-czhbd",
             "containers": [
               {
                 "name": "nginx"
@@ -253,7 +253,7 @@
             "name": "cappp-controller-manager"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-czhbd",
+            "nodeName": "control-plane-czhbd",
             "containers": [
               {
                 "name": "nginx"
@@ -277,7 +277,7 @@
             "name": "capz-controller-manager"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-czhbd",
+            "nodeName": "control-plane-czhbd",
             "containers": [
               {
                 "name": "nginx"
@@ -301,7 +301,7 @@
             "name": "capa-controller-manager"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-czhbd",
+            "nodeName": "control-plane-czhbd",
             "containers": [
               {
                 "name": "nginx"
@@ -325,7 +325,7 @@
             "name": "kube-controller-manager"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-czhbd",
+            "nodeName": "control-plane-czhbd",
             "containers": [
               {
                 "name": "nginx"
@@ -349,7 +349,7 @@
             "name": "vsphere-csi-node"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-czhbd",
+            "nodeName": "control-plane-czhbd",
             "containers": [
               {
                 "name": "nginx"
@@ -373,7 +373,7 @@
             "name": "kube-apiserver"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-czhbd",
+            "nodeName": "control-plane-czhbd",
             "containers": [
               {
                 "name": "nginx"
@@ -397,7 +397,7 @@
             "name": "vsphere-csi-controller"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-czhbd",
+            "nodeName": "control-plane-czhbd",
             "containers": [
               {
                 "name": "nginx"
@@ -418,10 +418,10 @@
         },
         {
           "metadata": {
-            "name": "etcd-raptor-control"
+            "name": "etcd-control"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-czhbd",
+            "nodeName": "control-plane-czhbd",
             "containers": [
               {
                 "name": "nginx"
@@ -445,7 +445,7 @@
             "name": "kube scheduler"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-czhbd",
+            "nodeName": "control-plane-czhbd",
             "containers": [
               {
                 "name": "nginx"
@@ -469,7 +469,7 @@
             "name": "csi-node"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-czhbd",
+            "nodeName": "control-plane-czhbd",
             "containers": [
               {
                 "name": "nginx"
@@ -493,7 +493,7 @@
             "name": "vsphere-cloud-controller"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-czhbd",
+            "nodeName": "control-plane-czhbd",
             "containers": [
               {
                 "name": "nginx"
@@ -517,7 +517,7 @@
             "name": "kube-proxy"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-czhbd",
+            "nodeName": "control-plane-czhbd",
             "containers": [
               {
                 "name": "nginx"
@@ -541,7 +541,7 @@
             "name": "calico-node"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-czhbd",
+            "nodeName": "control-plane-czhbd",
             "containers": [
               {
                 "name": "nginx"
@@ -565,7 +565,7 @@
             "name": "csi-node-driver"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-czhbd",
+            "nodeName": "control-plane-czhbd",
             "containers": [
               {
                 "name": "nginx"
@@ -589,7 +589,7 @@
             "name": "node-feature-discovery"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-czhbd",
+            "nodeName": "control-plane-czhbd",
             "containers": [
               {
                 "name": "nginx"
@@ -613,7 +613,7 @@
             "name": "CoreDNS"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-7vzbx",
+            "nodeName": "control-plane-7vzbx",
             "containers": [
               {
                 "name": "nginx"
@@ -637,7 +637,7 @@
             "name": "Kube-Prometheus"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-7vzbx",
+            "nodeName": "control-plane-7vzbx",
             "containers": [
               {
                 "name": "nginx"
@@ -661,7 +661,7 @@
             "name": "Kommander-Licensing"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-7vzbx",
+            "nodeName": "control-plane-7vzbx",
             "containers": [
               {
                 "name": "nginx"
@@ -685,7 +685,7 @@
             "name": "fluent bit"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-7vzbx",
+            "nodeName": "control-plane-7vzbx",
             "containers": [
               {
                 "name": "nginx"
@@ -709,7 +709,7 @@
             "name": "capg-controller manager"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-7vzbx",
+            "nodeName": "control-plane-7vzbx",
             "containers": [
               {
                 "name": "nginx"
@@ -733,7 +733,7 @@
             "name": "capv-controller-manager"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-7vzbx",
+            "nodeName": "control-plane-7vzbx",
             "containers": [
               {
                 "name": "nginx"
@@ -757,7 +757,7 @@
             "name": "cappp-controller-manager"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-7vzbx",
+            "nodeName": "control-plane-7vzbx",
             "containers": [
               {
                 "name": "nginx"
@@ -781,7 +781,7 @@
             "name": "capz-controller-manager"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-7vzbx",
+            "nodeName": "control-plane-7vzbx",
             "containers": [
               {
                 "name": "nginx"
@@ -805,7 +805,7 @@
             "name": "capa-controller-manager"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-7vzbx",
+            "nodeName": "control-plane-7vzbx",
             "containers": [
               {
                 "name": "nginx"
@@ -829,7 +829,7 @@
             "name": "kube-controller-manager"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-7vzbx",
+            "nodeName": "control-plane-7vzbx",
             "containers": [
               {
                 "name": "nginx"
@@ -853,7 +853,7 @@
             "name": "vsphere-csi-node"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-7vzbx",
+            "nodeName": "control-plane-7vzbx",
             "containers": [
               {
                 "name": "nginx"
@@ -877,7 +877,7 @@
             "name": "kube-apiserver"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-7vzbx",
+            "nodeName": "control-plane-7vzbx",
             "containers": [
               {
                 "name": "nginx"
@@ -901,7 +901,7 @@
             "name": "vsphere-csi-controller"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-7vzbx",
+            "nodeName": "control-plane-7vzbx",
             "containers": [
               {
                 "name": "nginx"
@@ -922,10 +922,10 @@
         },
         {
           "metadata": {
-            "name": "etcd-raptor-controller"
+            "name": "etcd-controller"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-7vzbx",
+            "nodeName": "control-plane-7vzbx",
             "containers": [
               {
                 "name": "nginx"
@@ -949,7 +949,7 @@
             "name": "kube scheduler"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-7vzbx",
+            "nodeName": "control-plane-7vzbx",
             "containers": [
               {
                 "name": "nginx"
@@ -973,7 +973,7 @@
             "name": "csi-node"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-7vzbx",
+            "nodeName": "control-plane-7vzbx",
             "containers": [
               {
                 "name": "nginx"
@@ -997,7 +997,7 @@
             "name": "vsphere-cloud-controller"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-7vzbx",
+            "nodeName": "control-plane-7vzbx",
             "containers": [
               {
                 "name": "nginx"
@@ -1021,7 +1021,7 @@
             "name": "kube-proxy"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-7vzbx",
+            "nodeName": "control-plane-7vzbx",
             "containers": [
               {
                 "name": "nginx"
@@ -1045,7 +1045,7 @@
             "name": "calico-node"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-7vzbx",
+            "nodeName": "control-plane-7vzbx",
             "containers": [
               {
                 "name": "nginx"
@@ -1068,7 +1068,7 @@
             "name": "csi-node-driver"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-7vzbx",
+            "nodeName": "control-plane-7vzbx",
             "containers": [
               {
                 "name": "nginx"
@@ -1092,7 +1092,7 @@
             "name": "node-feature-discovery"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-7vzbx",
+            "nodeName": "control-plane-7vzbx",
             "containers": [
               {
                 "name": "nginx"
@@ -1113,10 +1113,10 @@
         },
         {
           "metadata": {
-            "name": "raptor-dashboard"
+            "name": "dashboard"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1140,7 +1140,7 @@
             "name": "GraphQL-Server"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1164,7 +1164,7 @@
             "name": "cluster-observer"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1188,7 +1188,7 @@
             "name": "gitea-0"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1212,7 +1212,7 @@
             "name": "prometheus-server"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1233,10 +1233,10 @@
         },
         {
           "metadata": {
-            "name": "raptor-kafka-cluster"
+            "name": "kafka-cluster"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1260,7 +1260,7 @@
             "name": "calico-typha"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1284,7 +1284,7 @@
             "name": "calico-node"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1308,7 +1308,7 @@
             "name": "kommander-appmgmt"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1332,7 +1332,7 @@
             "name": "kommander-webhook"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1356,7 +1356,7 @@
             "name": "kommander-capimate"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1380,7 +1380,7 @@
             "name": "grafana"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1404,7 +1404,7 @@
             "name": "prometheus-kube-state"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1428,7 +1428,7 @@
             "name": "kubecost-traefik"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1452,7 +1452,7 @@
             "name": "centralized-grafana"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1476,7 +1476,7 @@
             "name": "kommander-kubecost-thnos-query-frontend"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1500,7 +1500,7 @@
             "name": "kubecost-grafana"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1524,7 +1524,7 @@
             "name": "rook-ceph"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1548,7 +1548,7 @@
             "name": "rook-ceph-crashcollecter"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1572,7 +1572,7 @@
             "name": "node-feature-discovery"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1596,7 +1596,7 @@
             "name": "ankoringress-nginx"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1617,10 +1617,10 @@
         },
         {
           "metadata": {
-            "name": "raptor-kaka-cluster-zookeeper"
+            "name": "kaka-cluster-zookeeper"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1644,7 +1644,7 @@
             "name": "prometheus-traefik-certs-kommander-default"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1668,7 +1668,7 @@
             "name": "kommander-cm"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1692,7 +1692,7 @@
             "name": "kommander-traefik"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1716,7 +1716,7 @@
             "name": "rfluentbit"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1740,7 +1740,7 @@
             "name": "rlogginf-operator"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1764,7 +1764,7 @@
             "name": "kubetunnel"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1788,7 +1788,7 @@
             "name": "kubecost-grafana"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1812,7 +1812,7 @@
             "name": "rook-ceph-osd"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1836,7 +1836,7 @@
             "name": "rook-ceph-mgr"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1860,7 +1860,7 @@
             "name": "vsphere-csi-node"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1884,7 +1884,7 @@
             "name": "kubetunnel-webhook"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1908,7 +1908,7 @@
             "name": "kube-prometheus-stack"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1932,7 +1932,7 @@
             "name": "prometheus-traefik-certs-kommander-federation"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1956,7 +1956,7 @@
             "name": "traefik-forward"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -1980,7 +1980,7 @@
             "name": "rkube-oldc"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -2004,7 +2004,7 @@
             "name": "rook-ceph-mon"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -2028,7 +2028,7 @@
             "name": "dex-dex-controller"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -2052,7 +2052,7 @@
             "name": "source-controller"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -2076,7 +2076,7 @@
             "name": "notification-controller"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -2100,7 +2100,7 @@
             "name": "speaker"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -2124,7 +2124,7 @@
             "name": "csi-node-driver"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -2148,7 +2148,7 @@
             "name": "kube-proxy"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-zgnhq",
+            "nodeName": "md-0-589b884cb5-zgnhq",
             "containers": [
               {
                 "name": "nginx"
@@ -2172,7 +2172,7 @@
             "name": "kommander-kommander-ui"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-d6d26",
+            "nodeName": "md-0-589b884cb5-d6d26",
             "containers": [
               {
                 "name": "REACT Dashboard"
@@ -2206,7 +2206,7 @@
             "name": "demo-nexus"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-d6d26",
+            "nodeName": "md-0-589b884cb5-d6d26",
             "containers": [
               {
                 "name": "nginx"
@@ -2230,7 +2230,7 @@
             "name": "demo-app"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-d6d26",
+            "nodeName": "md-0-589b884cb5-d6d26",
             "containers": [
               {
                 "name": "nginx"
@@ -2254,7 +2254,7 @@
             "name": "pods 4...32"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-d6d26",
+            "nodeName": "md-0-589b884cb5-d6d26",
             "containers": [
               {
                 "name": "nginx"
@@ -2278,7 +2278,7 @@
             "name": "calico-node"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-d6d26",
+            "nodeName": "md-0-589b884cb5-d6d26",
             "containers": [
               {
                 "name": "nginx"
@@ -2302,7 +2302,7 @@
             "name": "node-feature-discovery"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-d6d26",
+            "nodeName": "md-0-589b884cb5-d6d26",
             "containers": [
               {
                 "name": "nginx"
@@ -2326,7 +2326,7 @@
             "name": "csi-node-driver"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-d6d26",
+            "nodeName": "md-0-589b884cb5-d6d26",
             "containers": [
               {
                 "name": "nginx"
@@ -2350,7 +2350,7 @@
             "name": "kube-proxy"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-d6d26",
+            "nodeName": "md-0-589b884cb5-d6d26",
             "containers": [
               {
                 "name": "nginx"
@@ -2374,7 +2374,7 @@
             "name": "vsphere-csi-node"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-d6d26",
+            "nodeName": "md-0-589b884cb5-d6d26",
             "containers": [
               {
                 "name": "nginx"
@@ -2395,10 +2395,10 @@
         },
         {
           "metadata": {
-            "name": "end-raptor-control"
+            "name": "end-control"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-jmnwv",
+            "nodeName": "control-plane-jmnwv",
             "containers": [
               {
                 "name": "nginx"
@@ -2422,7 +2422,7 @@
             "name": "kube scheduler"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-jmnwv",
+            "nodeName": "control-plane-jmnwv",
             "containers": [
               {
                 "name": "nginx"
@@ -2446,7 +2446,7 @@
             "name": "pods 7 .. 17"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-jmnwv",
+            "nodeName": "control-plane-jmnwv",
             "containers": [
               {
                 "name": "nginx"
@@ -2470,7 +2470,7 @@
             "name": "kube-apiserver"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-jmnwv",
+            "nodeName": "control-plane-jmnwv",
             "containers": [
               {
                 "name": "nginx"
@@ -2494,7 +2494,7 @@
             "name": "4...6 cert-mgr"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-jmnwv",
+            "nodeName": "control-plane-jmnwv",
             "containers": [
               {
                 "name": "nginx"
@@ -2518,7 +2518,7 @@
             "name": "pods 18..22"
           },
           "spec": {
-            "nodeName": "raptor-control-plane-jmnwv",
+            "nodeName": "control-plane-jmnwv",
             "containers": [
               {
                 "name": "nginx"
@@ -2542,7 +2542,7 @@
             "name": "1...9 (grafana-loki)"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-gpd8c",
+            "nodeName": "md-0-589b884cb5-gpd8c",
             "containers": [
               {
                 "name": "nginx"
@@ -2566,7 +2566,7 @@
             "name": "demo-app (kuma)"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-gpd8c",
+            "nodeName": "md-0-589b884cb5-gpd8c",
             "containers": [
               {
                 "name": "nginx"
@@ -2590,7 +2590,7 @@
             "name": "pods 13... 33"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-gpd8c",
+            "nodeName": "md-0-589b884cb5-gpd8c",
             "containers": [
               {
                 "name": "nginx"
@@ -2614,7 +2614,7 @@
             "name": "kube-fed"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-gpd8c",
+            "nodeName": "md-0-589b884cb5-gpd8c",
             "containers": [
               {
                 "name": "nginx"
@@ -2638,7 +2638,7 @@
             "name": "dip-insights"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-gpd8c",
+            "nodeName": "md-0-589b884cb5-gpd8c",
             "containers": [
               {
                 "name": "nginx"
@@ -2662,7 +2662,7 @@
             "name": "pods 34... 36"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-gpd8c",
+            "nodeName": "md-0-589b884cb5-gpd8c",
             "containers": [
               {
                 "name": "nginx"
@@ -2683,10 +2683,10 @@
         },
         {
           "metadata": {
-            "name": "1..2 raptor-kafka"
+            "name": "1..2 kafka"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-9wcwn",
+            "nodeName": "md-0-589b884cb5-9wcwn",
             "containers": [
               {
                 "name": "nginx"
@@ -2710,7 +2710,7 @@
             "name": "reddis"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-9wcwn",
+            "nodeName": "md-0-589b884cb5-9wcwn",
             "containers": [
               {
                 "name": "nginx"
@@ -2734,7 +2734,7 @@
             "name": "pods 6...30"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-9wcwn",
+            "nodeName": "md-0-589b884cb5-9wcwn",
             "containers": [
               {
                 "name": "nginx"
@@ -2758,7 +2758,7 @@
             "name": "nexus"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-9wcwn",
+            "nodeName": "md-0-589b884cb5-9wcwn",
             "containers": [
               {
                 "name": "nginx"
@@ -2782,7 +2782,7 @@
             "name": "keyloak"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-9wcwn",
+            "nodeName": "md-0-589b884cb5-9wcwn",
             "containers": [
               {
                 "name": "nginx"
@@ -2806,7 +2806,7 @@
             "name": "pods 31..35"
           },
           "spec": {
-            "nodeName": "raptor-md-0-589b884cb5-9wcwn",
+            "nodeName": "md-0-589b884cb5-9wcwn",
             "containers": [
               {
                 "name": "nginx"
