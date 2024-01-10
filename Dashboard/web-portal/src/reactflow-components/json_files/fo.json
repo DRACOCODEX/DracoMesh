@@ -13,7 +13,7 @@
               "nodeRoleKubernetesIoControlPlane": "",
               "nodeKubernetesIoExcludeFromExternalLoadBalancers": ""
             },
-            "name": "raptor-control-plane"
+            "name": "control-plane"
           }
         },
         {
@@ -27,7 +27,7 @@
               "nodeRoleKubernetesIoControlPlane": "",
               "nodeKubernetesIoExcludeFromExternalLoadBalancers": ""
             },
-            "name": "raptor-koverse-node"
+            "name": "koverse-node"
           }
         },
         {
@@ -41,7 +41,7 @@
               "nodeRoleKubernetesIoControlPlane": "",
               "nodeKubernetesIoExcludeFromExternalLoadBalancers": ""
             },
-            "name": "raptor-devops-node"
+            "name": "devops-node"
           }
         },
         {
@@ -55,7 +55,7 @@
               "nodeRoleKubernetesIoControlPlane": "",
               "nodeKubernetesIoExcludeFromExternalLoadBalancers": ""
             },
-            "name": "raptor-belcan-node"
+            "name": "tactical-node"
           }
         }
       ]
@@ -67,7 +67,7 @@
             "name": "capg-controller-manager"
           },
           "spec": {
-            "nodeName": "raptor-control-plane",
+            "nodeName": "control-plane",
             "containers": [
               {
                 "name": "nginx"
@@ -91,7 +91,7 @@
             "name": "kube-controller-manager"
           },
           "spec": {
-            "nodeName": "raptor-control-plane",
+            "nodeName": "control-plane",
             "containers": [
               {
                 "name": "nginx"
@@ -115,7 +115,7 @@
             "name": "kube-api-server"
           },
           "spec": {
-            "nodeName": "raptor-control-plane",
+            "nodeName": "control-plane",
             "containers": [
               {
                 "name": "nginx"
@@ -136,10 +136,10 @@
         },
         {
           "metadata": {
-            "name": "etcd-raptor-control"
+            "name": "etcd-control"
           },
           "spec": {
-            "nodeName": "raptor-control-plane",
+            "nodeName": "control-plane",
             "containers": [
               {
                 "name": "nginx"
@@ -163,7 +163,7 @@
             "name": "kube-scheduler"
           },
           "spec": {
-            "nodeName": "raptor-control-plane",
+            "nodeName": "control-plane",
             "containers": [
               {
                 "name": "nginx"
@@ -187,7 +187,7 @@
             "name": "kubelet-node"
           },
           "spec": {
-            "nodeName": "raptor-koverse-node",
+            "nodeName": "koverse-node",
             "containers": [
               {
                 "name": "nginx"
@@ -211,7 +211,7 @@
             "name": "kube-proxy"
           },
           "spec": {
-            "nodeName": "raptor-koverse-node",
+            "nodeName": "koverse-node",
             "containers": [
               {
                 "name": "nginx"
@@ -235,7 +235,7 @@
             "name": "kubelet-node"
           },
           "spec": {
-            "nodeName": "raptor-devops-node",
+            "nodeName": "devops-node",
             "containers": [
               {
                 "name": "nginx"
@@ -259,7 +259,7 @@
             "name": "kube-proxy"
           },
           "spec": {
-            "nodeName": "raptor-devops-node",
+            "nodeName": "devops-node",
             "containers": [
               {
                 "name": "nginx"
@@ -283,7 +283,7 @@
             "name": "kubelet-node"
           },
           "spec": {
-            "nodeName": "raptor-belcan-node",
+            "nodeName": "tactical-node",
             "containers": [
               {
                 "name": "nginx"
@@ -307,7 +307,7 @@
             "name": "kube-proxy"
           },
           "spec": {
-            "nodeName": "raptor-belcan-node",
+            "nodeName": "tactical-node",
             "containers": [
               {
                 "name": "nginx"
@@ -331,7 +331,7 @@
             "name": "kube-proxy"
           },
           "spec": {
-            "nodeName": "raptor-control-plane",
+            "nodeName": "control-plane",
             "containers": [
               {
                 "name": "nginx"
@@ -355,7 +355,7 @@
             "name": "calico-node"
           },
           "spec": {
-            "nodeName": "raptor-control-plane",
+            "nodeName": "control-plane",
             "containers": [
               {
                 "name": "nginx"
@@ -379,7 +379,7 @@
             "name": "csi-node-driver"
           },
           "spec": {
-            "nodeName": "raptor-control-plane",
+            "nodeName": "control-plane",
             "containers": [
               {
                 "name": "nginx"
@@ -403,7 +403,7 @@
             "name": "node-feature-discovery"
           },
           "spec": {
-            "nodeName": "raptor-control-plane",
+            "nodeName": "control-plane",
             "containers": [
               {
                 "name": "nginx"
@@ -427,7 +427,7 @@
             "name": "vsphere-csi-node"
           },
           "spec": {
-            "nodeName": "raptor-control-plane",
+            "nodeName": "control-plane",
             "containers": [
               {
                 "name": "nginx"
@@ -451,7 +451,7 @@
             "name": "kube-apiserver"
           },
           "spec": {
-            "nodeName": "raptor-koverse-node",
+            "nodeName": "koverse-node",
             "containers": [
               {
                 "name": "nginx"
@@ -475,7 +475,7 @@
             "name": "kube-proxy"
           },
           "spec": {
-            "nodeName": "raptor-koverse-node",
+            "nodeName": "koverse-node",
             "containers": [
               {
                 "name": "nginx"
@@ -499,7 +499,7 @@
             "name": "calico-node"
           },
           "spec": {
-            "nodeName": "raptor-koverse-node",
+            "nodeName": "koverse-node",
             "containers": [
               {
                 "name": "nginx"
@@ -523,7 +523,7 @@
             "name": "csi-node-driver"
           },
           "spec": {
-            "nodeName": "raptor-koverse-node",
+            "nodeName": "koverse-node",
             "containers": [
               {
                 "name": "nginx"
@@ -547,7 +547,7 @@
             "name": "node-feature-discovery"
           },
           "spec": {
-            "nodeName": "raptor-koverse-node",
+            "nodeName": "koverse-node",
             "containers": [
               {
                 "name": "nginx"
@@ -571,7 +571,7 @@
             "name": "vphere-csi-node"
           },
           "spec": {
-            "nodeName": "raptor-koverse-node",
+            "nodeName": "koverse-node",
             "containers": [
               {
                 "name": "nginx"
@@ -595,7 +595,7 @@
             "name": "kube-apiserver"
           },
           "spec": {
-            "nodeName": "raptor-devops-node",
+            "nodeName": "devops-node",
             "containers": [
               {
                 "name": "nginx"
@@ -619,7 +619,7 @@
             "name": "kube-proxy"
           },
           "spec": {
-            "nodeName": "raptor-devops-node",
+            "nodeName": "devops-node",
             "containers": [
               {
                 "name": "nginx"
@@ -643,7 +643,7 @@
             "name": "calico-node"
           },
           "spec": {
-            "nodeName": "raptor-devops-node",
+            "nodeName": "devops-node",
             "containers": [
               {
                 "name": "nginx"
@@ -667,7 +667,7 @@
             "name": "csi-node-driver"
           },
           "spec": {
-            "nodeName": "raptor-devops-node",
+            "nodeName": "devops-node",
             "containers": [
               {
                 "name": "nginx"
@@ -691,7 +691,7 @@
             "name": "node-feature-discovery"
           },
           "spec": {
-            "nodeName": "raptor-devops-node",
+            "nodeName": "devops-node",
             "containers": [
               {
                 "name": "nginx"
@@ -715,7 +715,7 @@
             "name": "vsphere-csi-node"
           },
           "spec": {
-            "nodeName": "raptor-devops-node",
+            "nodeName": "devops-node",
             "containers": [
               {
                 "name": "nginx"
@@ -739,7 +739,7 @@
             "name": "kube-apiserver"
           },
           "spec": {
-            "nodeName": "raptor-belcan-node",
+            "nodeName": "tacticaln-node",
             "containers": [
               {
                 "name": "nginx"
@@ -763,7 +763,7 @@
             "name": "kube-proxy"
           },
           "spec": {
-            "nodeName": "raptor-belcan-node",
+            "nodeName": "tactical-node",
             "containers": [
               {
                 "name": "nginx"
@@ -787,7 +787,7 @@
             "name": "calico-node"
           },
           "spec": {
-            "nodeName": "raptor-belcan-node",
+            "nodeName": "tactical-node",
             "containers": [
               {
                 "name": "nginx"
@@ -811,7 +811,7 @@
             "name": "csi-node-driver"
           },
           "spec": {
-            "nodeName": "raptor-belcan-node",
+            "nodeName": "tactical-node",
             "containers": [
               {
                 "name": "nginx"
@@ -835,7 +835,7 @@
             "name": "node-feature-discovery"
           },
           "spec": {
-            "nodeName": "raptor-belcan-node",
+            "nodeName": "tactical-node",
             "containers": [
               {
                 "name": "nginx"
@@ -859,7 +859,7 @@
             "name": "vsphere-csi-node"
           },
           "spec": {
-            "nodeName": "raptor-belcan-node",
+            "nodeName": "tactical-node",
             "containers": [
               {
                 "name": "nginx"
