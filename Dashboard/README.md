@@ -68,7 +68,7 @@ The application will be running on port 3000 by default locally http://localhost
 
 <img width="1594" alt="DG Dashboard 000" src="https://github.com/DragonsDen-Forge/Drakube-Graphyon/blob/main/Dashboard/assets/dashboard-view-01.png">
 
-<img width="1594" alt="DG Dashboard 002" src="https://github.com/DragonsDen-Forge/Drakube-Graphyon/assets/149975971/ac97fe6a-9fed-49d6-89a8-e768f884654a">
+<img width="1594" alt="DG Dashboard 002" src="/assets/dashboard-view-02.png">
 
 
 
