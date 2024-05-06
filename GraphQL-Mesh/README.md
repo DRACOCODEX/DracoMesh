@@ -1,4 +1,4 @@
-# Drakube Graphyon GraphQL Mesh Gateway and Server
+# DracoMesh - GraphQL Mesh Gateway and Server
 Extending an Open Source GraphQL Mesh and Gateway Framework.
 
 ## Capabilities
