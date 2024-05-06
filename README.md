@@ -1,11 +1,14 @@
-# Drakube-Graphyon
-This name evokes the image of a mythical dragon that stands at the nexus of Kubernetes management, wielding the power of GraphQL to unify and simplify the data management experience.
-
-## Meaning
-- Drakube combines "Dra-" (a nod to "dragon") and "-kube" (from "Kubernetes"), signifying a powerful and mythical creature that masterfully orchestrates the Kubernetes environment.
-- Graphyon blends "GraphQL" and the suffix "-on," often used in technology to denote particles or components. It implies a foundational element that interfaces seamlessly with GraphQL to provide a common data model.
+# DracoMesh
+DracoMesh: Uniting the Power of Draco and Mesh for Seamless Kubernetes Management.
 
 ## Overview
+DracoMesh embodies the majestic essence of the mythical dragon, Draco, as it converges with the intricate web of Kubernetes management. By harnessing the potent forces of GraphQL, DracoMesh serves as a catalyst for unifying and simplifying data management experiences. 
+
+This innovative solution extends the boundaries of possibility by seamlessly integrating with the acclaimed GraphQL MESH and React, offering unparalleled capabilities in data management. Its flexibility knows no bounds as it effortlessly integrates with existing tools and CNCF ecosystems. With DracoMesh, the risk of deployment is minimized through its declarative configuration approach, consolidating Kubernetes and API Gateway settings into a single YAML file. Role-Based Access Controls (RBAC) ensure meticulous control over configuration changes, mitigating potential drifts.
+
+Developers find solace in DracoMesh's commitment to enhancing productivity. Its frictionless onboarding and service discovery mechanisms propel API consumption forward, while automatic updates ensure developers have access to the latest documentation. Moreover, DracoMesh accelerates deployment cycles by automating workflows and streamlining tasks through seamless integration with leading CI/CD tools. With the ability to automatically generate configurations and publish REST, GraphQL, and gRPC services, DracoMesh paves the way for agile and efficient deployment strategies.
+
+## Capabilities
 - Extension and/ utlization of 2 popular Open Source Projects: GraphQL MESH and REACT.
 - Easily integrates with your existing tools or any CNCF tool.
 - Reduce Deployment Risk: Eliminate risk of configuration drift by declaratively configuring Kubernetes and the API Gateway within a single YAML file. Limit who can make configuration changes through Role-Based Access Controls (RBAC).
