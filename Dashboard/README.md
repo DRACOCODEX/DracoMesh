@@ -1,6 +1,6 @@
 Threat Dashboard
 
-React web application designed to provide administrative capabilities for Drakube-Graphyon's Threat Dashboard. 
+React web application designed to provide administrative capabilities for DracoMesh's Threat Dashboard. 
 It is built on top of the Material Dashboard 2 PRO React template licensed through Creative Tim.
 
 ## Description
