@@ -66,9 +66,7 @@ The application will be running on port 3000 by default locally http://localhost
 
 ## Screenshots
 
-<img width="1594" alt="DG Dashboard 000" src="assets/dashboard-view-01.png">
-
-<img width="1594" alt="DG Dashboard 002" src="assets/dashboard-view-02.png">
+<img width="1594" alt="DG Dashboard 000" src="assets/dashboard-view-03.png">
 
 
 
