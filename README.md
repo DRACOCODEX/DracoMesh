@@ -1,4 +1,4 @@
-# DracoMesh
+# DracoMesh™️
 DracoMesh: Uniting the Power of Draco and Mesh for Seamless Kubernetes Management.
 
 ## Overview
